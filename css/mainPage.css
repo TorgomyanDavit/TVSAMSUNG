@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("../fonts/Montserrat-Regular.otf");
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Montserrat-Regular' !important;
+}
+
+body {
+    cursor: context-menu;
+    background: white;
+}
+
+.mainPage {
+    /* background:  radial-gradient(114.97% 114.97% at 39.4% 114.97%, #B1B1FF 0%, #E3E2FF 100%); */
+    background: #EAEAFF;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgDiv img:nth-child(1) {
+    width: 415px;
+    height: 159px;
+    mix-blend-mode: darken;
+
+}
+
+
+.imgDiv img:nth-child(2) {
+    width: 872px;
+    height: 543px;
+}
+
+.imgDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 47px;
+}
+
+.mainDescriptionDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainDescriptionDiv h2 {
+    max-width: 597px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 59px;
+    line-height: 72px;
+}
+
+.mainDescriptionDiv p {
+    max-width: 653px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin:35px 0;
+    font-family: "Montserrat-Regular" !important;
+    opacity: 0.7;
+}
+
+.buttonDiv {
+    display: flex;
+    margin-bottom: 37px;
+}
+
+.buttonDiv a:nth-child(1) {
+    margin-right: 28px;
+}
+
+.buttonDiv a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 266px;
+    height: 73px;
+    background: #EEBA06;
+    box-shadow: 0px 21px 55px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #282828;
+    transition: 0.4s;
+}
+
+.button2 {
+    background: #5C58FF !important;
+    color: white !important;
+}
+
+.telCanalIcon {
+    display: flex;
+    align-items: center;
+}
+
+.telCanalIcon img {
+    margin-right: 29px;
+}
+
+.telCanalIcon img {
+    width: min-content;
+    height: min-content;
+    /* mix-blend-mode:lighten; */
+
+}
+
+.telCanalIcon img:nth-child(4) {
+    mix-blend-mode: darken;
+}
+
+/* .telCanalIcon img:nth-child(5) {
+    mix-blend-mode: darken;
+} */
+
+.activehoverParentLogo {
+    transform: scale(1.2);
+    /* border: 3px dotted #00b62449; */
+    box-shadow: 0px 5px 23.6667px #ffffff;
+}
+
+.activebuttonhover{
+    background: #00B624 !important;
+    transform: translateY(-10px) !important;
+    color: white !important;
+}

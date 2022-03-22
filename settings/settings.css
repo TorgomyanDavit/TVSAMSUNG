@@ -1,0 +1,189 @@
+.playListMain {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: #EAEAFF;
+}
+
+.childPlayList {
+    max-width: 1660px;
+    margin-left: 195px;
+    padding-top: 37px;
+}
+
+.settingUser {
+    display: flex;
+    flex-direction: column;
+    max-width: 574px;
+    width: 100%;
+    /* background: crimson; */
+    margin-left: 195px;
+    margin-top: 64px;
+}
+
+.uploadfileDiv {
+    width: 100%;
+    height: 134.77px;
+    padding: 21px 23px;
+    background: #FFFFFF;
+    box-shadow: 0px 13.3101px 66.5507px rgba(0, 0, 0, 0.15);
+    border-radius: 8.31884px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 21px;
+}
+
+.userImg {
+    width: 91.51px;
+    height: 91.51px;
+    border-radius: 8.31884px;
+}
+
+.uploadfileDiv label{
+    width: 409.29px;
+    height: 91.51px;
+    background: #CCE1E4;
+    border-radius: 8.31884px;
+    color: #006879;
+    font-weight: 600;
+    font-size: 23.2928px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.userInputDivmini {
+    order: 0;
+    width: 100%;
+    height: 74.87px;
+    padding: 14px 33px;
+    display: flex;
+    justify-content: space-between;
+    background: #FFFFFF;
+    align-items: center;
+    box-shadow: 0px 13.3101px 66.5507px rgba(0, 0, 0, 0.15);
+    border-radius: 8.31884px;
+    margin-bottom: 21px;
+}
+
+.userSettings {
+    font-weight: 600;
+    font-size: 23.2928px;
+    color: rgba(40, 40, 40, 0.7);
+}
+
+.editSvg {
+    width: 24.96px;
+    height: 21.63px;
+    cursor: pointer;
+}
+
+.userinputValue {
+    width: 60%;
+    font-weight: 600;
+    font-size: 23.2928px;
+    color: #282828;
+    border: none;
+    padding-left: 33px;
+}
+
+input[type=text]:read-only {
+    border: none;
+    outline: none;
+}
+
+input[type=password]:read-only {
+    border: none;
+    outline: none;
+}
+
+
+
+.slackLanguig {
+    width: 23.29px;
+    height: 11.65px;
+    background-image: url("../images/slackLanguig.svg");
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    cursor: pointer;
+}
+
+.languigName {
+    font-weight: 600;
+    font-size: 23.2928px;
+    color: rgba(40, 40, 40, 0.7);
+    margin-left: 33px;
+    display: flex;
+    align-items: center;
+}
+
+.languigImg {
+    width: 49.91px;
+    height: 34.94px;
+}
+
+.languigDiv {
+    justify-content:space-between;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.imgLang {
+    display: flex;
+}
+
+.clickLanguig {
+    width: 574px;
+    height: 84.85px;
+    background: #EEBA06;
+    border-radius: 16.6377px;
+    font-weight: 600;
+    font-size: 29.9478px;
+    border: none;
+    outline: none;
+    margin-top: 22px;
+}
+
+
+
+
+
+
+/* emulator */
+
+
+.inputSearchHover {
+    border: 2px solid #EEBA06 !important;
+    transition: 0.4s  !important;
+}
+
+.editStyleHover {
+    transform: scale(2);
+}
+
+.signInMainButtonhover {
+    color: white;
+    background: #4F4DFF;
+    transition: 0.4s;
+}
+
+.userinputValue:focus {
+    outline: none;
+    border: 2px solid #EEBA06;
+    border-radius: 15px;
+}
+
+.addingLanguig {
+    display: flex;
+}
+
+.channelsChildhover {
+    border: 2px solid #00B624  !important;
+}

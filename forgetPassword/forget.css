@@ -1,0 +1,128 @@
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("../fonts/Montserrat-Regular.otf");
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Montserrat-Regular' !important;
+}
+
+.forgetPassword {
+    width: 645px;
+    height: 379px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 254px;
+    padding:  50px 49px;
+    position: relative;
+}
+
+.paswordtitle {
+    font-weight: 700;
+    font-size: 30px;
+    color: #010023;
+    margin-bottom: 37px;
+}
+
+.changingInput {
+    font-weight: 600;
+    font-size: 24px;
+    color: #282828;
+    padding-left: 40px;
+    width: 100%;
+    height: 70px;
+    box-shadow: inset 1.33333px 2.66667px 6.66667px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: #28282810;
+    border: none;
+    margin-bottom: 35px;
+    outline: none;
+    border: 2px solid transparent;
+}
+
+.confirmButton {
+    background: #EEBA06;
+    border-radius: 10px;
+    width: 100%;
+    height: 73px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.playListMain {
+    position: relative;
+    overflow-x: hidden !important;
+    width: 100vw;
+    height: 100vh;
+    background: #EAEAFF;
+}
+
+.childPlayList {
+    max-width: 1660px;
+    width: 100%;
+    margin-left: 130px;
+    margin-top: 41px;
+}
+
+.goBAckSlack {
+    background: rgba(196, 196, 196, 0.2);
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    background-image: url("../images/goBackSvg.svg");
+    background-size: 17px;
+    background-position: center;
+    border: none;
+    outline: none;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 27px;
+    top: 32px;
+}
+
+.letterReceive {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.recLetDescription {
+    font-weight: 700;
+    font-size: 30px;
+    color: #010023;
+    margin-top: 34px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.recLetter {
+    width: 179px;
+    height: 172px;
+}
+
+
+
+.inputSearchHover {
+    border: 2px solid #EEBA06 !important;
+    transition: 0.4s  !important;
+}
+
+.hoverLinkForButton {
+    color: white !important;
+    background: #4F4DFF !important;
+    transition: 0.4s;
+}
+
+.hoverRefresh {
+    transform: scale(1.1);
+    border: 2px solid #00B624 !important;
+}
+

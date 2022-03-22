@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    cursor: context-menu;
+    background:  white;
+}
+
+.screenMain {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: #EAEAFF;
+
+}
+
+.childScreen {
+    max-width: 1660px;
+    margin-left: 195px;
+    padding-top: 37px;
+}
+
+.arrowBack {
+    display: flex;
+    align-items: center;
+    color: #282828;
+    margin-top: 71px;
+
+}
+
+.arrowBack span {
+    margin-left: 46px;
+    font-weight: bold;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.arrowBack a {
+    width: 69.78px;
+    height: 69.72px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    border: 2px solid transparent;
+}
+
+.arrowBack a img {
+    width: 23px;
+}
+
+.childScreenSize {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 71px;
+}
+
+.childScreenSize .div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 487px;
+    height: 279px;
+    background: #CECDFF;
+    margin-bottom: 47px;
+}
+
+.childDiv {
+    width: 332px;
+    height: 173px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.childScreenSize .div:nth-child(n+4) {
+    margin-bottom: 0;
+}
+
+.div {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.div:hover {
+    border: 2px solid #00B624;
+}
+
+
+
+.childDiv:nth-child(1) {
+    align-content: space-between;
+}
+
+.div:nth-child(1) .childDiv p{
+    width: 157px;
+    height: 77px;
+    background: #4F4DFF;
+}
+
+.div:nth-child(2) .childDiv p{
+    width: 101px;
+    height: 75px;
+    background: #4F4DFF;
+}
+
+.div:nth-child(2) .childDiv p:nth-child(1){
+    width: 100%;
+}
+
+.div:nth-child(3) .childDiv p{
+    width: 159px;
+    height: 75px;
+    background: #4F4DFF;
+}
+
+.div:nth-child(3) .childDiv p:nth-child(1){
+    width: 100%;
+}
+
+.div:nth-child(4) .childDiv p{
+    width: 159px;
+    height: 76px;
+    background: #4F4DFF;
+}
+
+.div:nth-child(4) .childDiv p:nth-child(3){
+    width: 100%;
+}
+
+.div:nth-child(5) .childDiv p {
+    width: 160px;
+    height: 170px;
+    background: #4F4DFF;
+}
+
+.div:nth-child(6) .childDiv p{
+    width: 100%;
+    height: 76px;
+    background: #4F4DFF;
+}    
+
+
+
+/* emlator style */
+
+.inputSearchHover {
+    border: 2px solid #EEBA06 !important;
+    transition: 0.4s  !important;
+}
+
+.hoverRefresh {
+    transform: scale(1.1);
+    border: 2px solid #00B624  !important;
+}
+
+.channelsChildhover {
+    border: 2px solid #00B624  !important;
+}
+
+
+
+

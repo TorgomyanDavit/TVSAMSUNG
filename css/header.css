@@ -1,0 +1,73 @@
+/* header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header > a {
+    width: 143.43px;
+    height: 55px;
+}
+
+.ProUl {
+    display: flex;
+    justify-content: space-between;
+}
+
+.playlistInput {
+    width: 389px;
+    height: 47px;
+    box-shadow: 0px 2.81459px 14.0729px rgba(0, 0, 0, 0.02);
+    margin-right: 40px;
+}
+
+.inputSearchList {
+    width: 100%;
+    height: 100%;
+    padding-left: 56px;
+    background-image: url("../images/search.svg");
+    background-repeat: no-repeat;
+    background-size: 17px 17px;
+    background-position: 22px;
+    border: 2px solid transparent;
+    border-radius: 52.7735px;
+    outline: none !important;
+    color: rgba(0, 0, 0, 0.692);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.ProUl p img {
+    margin-right: 10px;
+    width: 10.33px;
+    height: 10.33px;
+}
+
+.ProUl p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.clock {
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-right: 17px;
+    color: rgba(40, 40, 40, 1);
+    width: 105px;
+}
+
+.calendar {
+    color: rgba(40, 40, 40, 1);
+    font-weight: 500;
+    font-size: 18px;
+}
