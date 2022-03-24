@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-
 body {
     overflow-x: hidden;
     cursor: context-menu;
@@ -28,9 +27,8 @@ body {
     top: 228px;
 }
 
-
 .childPlaylist {
-    max-width: 1660px;
+    max-width: 1667px;
     margin-left: 195px;
     padding-top: 37px;
 }
@@ -183,7 +181,6 @@ body {
     display: none;
 }
 
-
 /* key config */
 
 .hoverRefresh {
@@ -226,13 +223,11 @@ body {
 
 .scrollUserPage {
     width: fit-content;
-    height: 500px;
+    height: 730px;
     overflow: hidden;
     transition: 0.5s;
     margin-top: 34px;
 }
-
-
 
 /* player */
 .videoconteiner {
@@ -250,6 +245,11 @@ body {
 #myVideo {
     width: 100%;
     height: 100%;
+}
+
+#av-player{
+    width: 30%;
+    height: 20%;
 }
 
 .sourceButton {
@@ -272,6 +272,11 @@ body {
     background-color: transparent;
     border: none;
     outline: none;
+}
+
+.keyCode {
+    color: red;
+    font-size: 50px;
 }
 
 .play svg {
@@ -312,7 +317,6 @@ body {
     background-repeat: no-repeat;
 }
 
-
 /* style hovere player */
 .backButtonHover {
     transform: scale(1.3) !important;
@@ -322,7 +326,6 @@ body {
 .hoverSlack > svg path {
     fill: #00B624;
 }
-
 
 .playIcon {
     display: none !important;

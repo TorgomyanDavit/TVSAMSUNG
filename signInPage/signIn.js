@@ -14,7 +14,6 @@ form.addEventListener("submit",function(e) {
 // 37 left,38 arrowup,39 right,40 arrowdown
 var numberOfKey = null
 document.addEventListener("keydown",function(event) {
-    console.log(event.keyCode,numberOfKey);
     // close open element
     if(event.keyCode !== 8) {
         Link[0].classList.remove("hoverLink")

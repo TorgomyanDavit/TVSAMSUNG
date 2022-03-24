@@ -25,7 +25,8 @@ parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2G
 
 
 
-
+    // videojs("myVideo").src({type: "application/x-mpegURL", src: parentChild[i5].getAttribute("data-src")})
+    // videojs("myVideo").play()
 
 
 if(localStorage.getItem("booline") !== null) {
@@ -67,7 +68,6 @@ var collectionKey = null
 var scrollTopBottom = 0
 
 document.addEventListener("keydown",function(event){
-    console.log(event.keyCode);
     if((event.keyCode === 65376 || event.keyCode === 13) && userListKey === 1) {
         back()
     } else if(notification.style.right !== "0px" && videoconteiner.style.display !== "block") {
@@ -175,14 +175,14 @@ document.addEventListener("keydown",function(event){
             }   else if(event.keyCode === 40 && collectionKey < parentChild.length - 7) {
                 // scroll channel
                 if(collectionKey >= 7) {
-                    scrollTopBottom -= 180
+                    scrollTopBottom -= 254
                     TvChannelBlock.style.top = (scrollTopBottom + "px")
                 }
                 collectionKey += 7
             } else if(event.keyCode === 38 && collectionKey > 6) {
                 // scroll channel
                 if(collectionKey > 13) {
-                    scrollTopBottom += 180
+                    scrollTopBottom += 254
                     TvChannelBlock.style.top = (scrollTopBottom + "px")
                 }
                 collectionKey -= 7
@@ -245,14 +245,13 @@ document.addEventListener("keydown",function(event){
             videoconteiner.style.display = "block"
             for(var i5 = 0;i5 < parentChild.length;i5++) {
                 if(i5 === collectionKey) {
-                    videojs("myVideo").src({type: "application/x-mpegURL", src: parentChild[i5].getAttribute("data-src")})
-                    videojs("myVideo").play()
+                    // videojs("myVideo").src({type: "application/x-mpegURL", src: parentChild[i5].getAttribute("data-src")})
+                    // videojs("myVideo").play()
                 }
             }
         }
     }
 
-    console.log(userListKey,collectionKey,scrollTopBottom);
 })
 
 

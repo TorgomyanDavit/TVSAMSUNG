@@ -4,7 +4,6 @@ var buttonDiv = document.querySelector(".colorButton");
 var chooseField = document.querySelector(".chooseField");
 var liveChannelType = document.querySelectorAll(".live");
 var channelsChild = document.querySelectorAll(".channelsChild");
-var track = document.getElementsByClassName("slick-track");
 var inputSearch = document.querySelector(".inputSearch");
 var iconDivMenu = document.querySelectorAll(".iconDivMenu");
 var menyu = document.querySelector(".menyu");
@@ -14,6 +13,7 @@ var slackPosition = document.querySelectorAll(".slackPosition");
 var mainPageSizerDiv = document.querySelector(".mainPageSizerDiv");
 var parentChild = document.querySelectorAll(".parentChild");
 var video = document.getElementById('myVideo');
+var channels = document.querySelector(".channels");
 localStorage.removeItem('pathName');
 
 parentChild[0].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/523/index.m3u8");
@@ -29,6 +29,7 @@ if(localStorage.getItem("openPopup") === "true") {
 
 var numberOfMainKey = null
 var numberSlider = null
+var leftSlider = 0
 document.addEventListener("keydown",function(event) {
     if(videoconteiner.style.display !== "block") {
         if(chooseField.style.display === "") {
@@ -141,7 +142,13 @@ document.addEventListener("keydown",function(event) {
             }
         } else {
             // remove class
+
+
+            
+
+
             if(notification.style.right === "-464px" || notification.style.right === "") {
+
                 for(var j = 0;j < liveChannelType.length;j++) {
                     if(numberOfMainKey === j && numberOfMainKey !== 6) {
                         liveChannelType[j].classList.remove("hoverLive")
@@ -153,7 +160,8 @@ document.addEventListener("keydown",function(event) {
                 inputSearch.classList.remove("inputSearchHover")
                 // remove focus
                 for(var o = 0;o < channelsChild.length;o++) {
-                    channelsChild[o].blur()
+                    channelsChild[o].classList.remove("channelsChildfocus")
+                    // channelsChild[o].blur()
                 }
         
                 // change numberOfMainKey value
@@ -164,6 +172,12 @@ document.addEventListener("keydown",function(event) {
                 }else if(event.keyCode === 40 && (numberOfMainKey === 4 || numberOfMainKey === 5 || numberOfMainKey === 6) && numberOfMainKey !== -1) {
                     numberSlider = 0
                     numberOfMainKey = 7
+                    for(var o = 0;o < channelsChild.length;o++) {
+                        if(o === numberSlider) {
+                            channelsChild[o].classList.add("channelsChildfocus")
+                            // channelsChild[o].blur()
+                        }
+                    }
                 } else if(event.keyCode === 37 && numberOfMainKey === 3 && (numberSlider === 0 || numberSlider === null)) {
                     iconDivMenu[1].classList.add("activeHover")
                     numberOfMainKey = -3
@@ -178,8 +192,6 @@ document.addEventListener("keydown",function(event) {
                     numberOfMainKey = -1
                 }
         
-                
-            
                 /** add hover for type*/
                 if(numberOfMainKey >= 0 && numberOfMainKey <= 6) {
                     for(var j = 0;j < liveChannelType.length;j++) {
@@ -197,10 +209,6 @@ document.addEventListener("keydown",function(event) {
         
                 // logic slider
                 if(numberSlider >= 0 && numberOfMainKey === 7) {
-                    if(numberSlider === 0) {
-                        track[0].style.transform = "translate(0px)"
-                    }
-                    
                     if(event.keyCode === 37 && numberSlider > 0 ) {
                         numberSlider--
                     } else if(event.keyCode === 39 && numberSlider < channelsChild.length - 1)  {
@@ -209,7 +217,7 @@ document.addEventListener("keydown",function(event) {
         
                     for(var o = 0;o < channelsChild.length;o++) {
                         if(o === numberSlider) {
-                            channelsChild[o].focus()
+                            channelsChild[o].classList.add("channelsChildfocus")
                         }
                     }
                 } else if(event.keyCode === 37 && numberSlider === 0)  {
@@ -218,6 +226,19 @@ document.addEventListener("keydown",function(event) {
                     numberSlider = null
                 } 
         
+                if(numberSlider >= 0 && numberOfMainKey === 7) {
+                    if(numberSlider === 0) {
+                        leftSlider = 0
+                        channels.style.left = leftSlider + "px"
+                    } else if(numberSlider > 2 && event.keyCode === 39 && numberSlider < channelsChild.length -1) {
+                        leftSlider -= 212
+                        channels.style.left = leftSlider + "px"
+                    } else if(numberSlider > 1 && event.keyCode === 37) {
+                        leftSlider += 212
+                        channels.style.left = leftSlider + "px"
+                    }
+                }
+
                 // click anyWher Logic
                 if(numberOfMainKey === -1 && event.keyCode === 13) {
                     localStorage.setItem("booline", true);
@@ -232,7 +253,6 @@ document.addEventListener("keydown",function(event) {
                     window.location.href = "../settings/settings.html";
                 }
 
-                // console.log(numberSlider,event.keyCode);
                 /** Tv Player */
                 if(event.keyCode ===  13 && numberOfMainKey === 7 && numberSlider !== null) {
                     mainPageSizerDiv.style.display = "none"

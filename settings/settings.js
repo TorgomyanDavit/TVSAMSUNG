@@ -12,7 +12,6 @@ var menyu = document.querySelector(".menyu");
 var slackPosition = document.querySelectorAll(".slackPosition");
 var nameField = document.querySelector(".nameField");
 
-console.log(nameField);
 var userListKey = null
 var collectionKey = null
 document.addEventListener("keydown",function(event) {

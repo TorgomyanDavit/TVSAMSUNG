@@ -8,16 +8,25 @@
     <link rel="stylesheet" href="./user.css">
     <link rel="stylesheet" href="../css/menyu.css">
     <link rel="stylesheet" href="../css/header.css">
-    <!-- Tv player  -->
-    <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <section class="playlistMain">
+        <!-- <video id="myVideo" class="video-js vjs-default-skin" poster="../images/loadingImg.png" autoplay >
+            <source src="http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8" type="application/x-mpegURL">
+        </video> -->
+        <object id="av-player" type="application/avplayer"></object>
+        <!-- 
+        <video id="myVideo" class="video-js vjs-default-skin" poster="../images/loadingImg.png" autoplay >
+            <source src="../video/superSaqo.mp4" type="video/mp4">
+        </video> -->
         <div class="videoconteiner">
-            <video id="myVideo" class="video-js vjs-default-skin" poster="../images/loadingImg.png" ></video>
+            <!-- <video id="myVideo" class="video-js vjs-default-skin" poster="../images/loadingImg.png" autoplay >
+                <source src="http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8" type="application/x-mpegURL">
+            </video> -->
 
             <div class="sourceButton">
+                <div class="keyCode">keyCode</div>
                 <button class="backButton"></button>
                 <button class="prev slack">
                     <svg width="43" height="60" viewBox="0 0 43 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,10 +275,9 @@
         </div>
     </section>
 
-    <!--Tv player -->
-    <!-- <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script> -->
-    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+<!-- tizen Player example -->
+    <script type='text/javascript' src='$WEBAPIS/webapis/webapis.js'></script>
 
     <!-- jquery and slider -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

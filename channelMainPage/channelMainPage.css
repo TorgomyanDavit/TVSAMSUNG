@@ -316,6 +316,9 @@ body {
 }
 
 .channels {
+    transition: 0.4s;
+    position: relative;
+    bottom: 0;
     display: flex;
 }
 
@@ -344,7 +347,7 @@ body {
     border: 2px solid #00B624;
 }
 
-.channelsChild:focus {
+.channelsChildfocus {
     outline: none !important;
     border: 2px solid #00B624;
 }
