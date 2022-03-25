@@ -1,5 +1,3 @@
-
-
 var buttonCollection = document.querySelectorAll(".buttonRef")
 for(var i = 0;i < buttonCollection.length;i++) {
         buttonCollection[i].addEventListener("click",function() {
@@ -20,17 +18,6 @@ for(var o = 0;o < blockCount.length;o++) {
     tvChannelBlock.appendChild(parentChild);
 };
 
-var config = {
-    url: 'http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8',
-    player: document.getElementById('av-player'),
-    controls: document.querySelector('.video-controls'),
-    info: document.getElementById('info'),
-};
-
-
-var player = new VideoPlayer(config);
-player.open(config.url);
-console.log(player)
 
 
 

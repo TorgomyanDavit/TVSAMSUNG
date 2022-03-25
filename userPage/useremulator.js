@@ -14,20 +14,12 @@ var slackPosition = document.querySelectorAll(".slackPosition")
 var video = document.getElementById('myVideo');
 var videoconteiner = document.querySelector(".videoconteiner")
 var childPlaylist = document.querySelector(".childPlaylist")
-var source = document.getElementById('source');
 
 
 
 parentChild[0].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/523/index.m3u8");
 parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
 parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/2086/index.m3u8");
-
-
-
-
-    // videojs("myVideo").src({type: "application/x-mpegURL", src: parentChild[i5].getAttribute("data-src")})
-    // videojs("myVideo").play()
-
 
 if(localStorage.getItem("booline") !== null) {
     back()
@@ -68,6 +60,9 @@ var collectionKey = null
 var scrollTopBottom = 0
 
 document.addEventListener("keydown",function(event){
+
+
+
     if((event.keyCode === 65376 || event.keyCode === 13) && userListKey === 1) {
         back()
     } else if(notification.style.right !== "0px" && videoconteiner.style.display !== "block") {
@@ -93,6 +88,7 @@ document.addEventListener("keydown",function(event){
                 parentChild[j].classList.remove("channelsChildhover")
             }
         }
+
         if(userListKey === null ) {
             userListKey = 1
         } else if(event.keyCode === 37 && userListKey === 0 && !(inputSearchList.classList.contains("inputseracStyle"))) {
@@ -245,8 +241,12 @@ document.addEventListener("keydown",function(event){
             videoconteiner.style.display = "block"
             for(var i5 = 0;i5 < parentChild.length;i5++) {
                 if(i5 === collectionKey) {
-                    // videojs("myVideo").src({type: "application/x-mpegURL", src: parentChild[i5].getAttribute("data-src")})
-                    // videojs("myVideo").play()
+                    var filmUrl = parentChild[i5].getAttribute("data-src")
+                    tizen.tvinputdevice.registerKey('MediaPlay', 'MediaPause','MediaStop','MediaFastForward','MediaRewind');
+                    webapis.avplay.open(filmUrl);
+                    webapis.avplay.setDisplayRect(0,0,1920,1080);
+                    webapis.avplay.prepare();                
+                    webapis.avplay.play();
                 }
             }
         }
