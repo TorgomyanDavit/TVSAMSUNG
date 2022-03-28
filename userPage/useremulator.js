@@ -17,9 +17,13 @@ var childPlaylist = document.querySelector(".childPlaylist")
 
 
 
+
 parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
 parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
-parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/2086/index.m3u8");
+parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/106/index.m3u8");
+
+
+
 
 if(localStorage.getItem("booline") !== null) {
     back();
@@ -242,7 +246,6 @@ document.addEventListener("keydown",function(event){
             for(var i5 = 0;i5 < parentChild.length;i5++) {
                 if(i5 === collectionKey) {
                     var filmUrl = parentChild[i5].getAttribute("data-src")
-                    tizen.tvinputdevice.registerKey('MediaPlay', 'MediaPause','MediaStop','MediaFastForward','MediaRewind');
                     webapis.avplay.open(filmUrl);
                     webapis.avplay.setDisplayRect(0,0,1920,1080);
                     webapis.avplay.prepare();                

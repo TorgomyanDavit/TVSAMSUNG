@@ -6,37 +6,22 @@ var channel = document.querySelector(".prev")
 var sourceButton = document.querySelector(".sourceButton")
 var slack = document.querySelectorAll(".slack")
 var mainPageSizerDiv = document.querySelector(".mainPageSizerDiv");
-
-
-
-
-
-
-
+const keysTizen = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "ChannelUp", "ChannelDown", "MediaPlay", "MediaPause", "MediaFastForward", "MediaRewind", "Exit"];
+tizen.tvinputdevice.registerKeyBatch(keysTizen);
 
 var keyPlayer = null
 var channelType = 0
 var myTimeout = -1
 
-
-
 window.onload = function () {
-
-
-
-
     document.addEventListener("keydown",function(event) {
-
-
 
         if(videoconteiner.style.display === "block") {
             sourceButton.classList.add("playButtonHover")
             if(myTimeout !== -1) { clearTimeout(myTimeout); }
             myTimeout = setTimeout(function() { sourceButton.classList.remove("playButtonHover");keyPlayer = 3},2000)
-    
-    
-    
             if(sourceButton.classList.contains("playButtonHover"))  {
+
                 for(var i = 0;i < slack.length;i++) {
                     backButton.classList.remove("backButtonHover")+
                     slack[i].classList.remove("hoverSlack")
@@ -79,7 +64,7 @@ window.onload = function () {
                     keyPlayer = 0
                 } 
                 
-                else if(event.keyCode === 13 && keyPlayer === 2) {
+                else if((event.keyCode === 13 && keyPlayer === 2) || event.keyCode === 428) {
                     if(channelType > 0) {
                         channelType--
                     }
@@ -95,18 +80,21 @@ window.onload = function () {
                 } 
                 
                 else if(event.keyCode ===  13 && keyPlayer === 3) {
-                    if(webapis.avplay.getState() === 'PAUSED') {
+                    if(webapis.avplay.getState() === 'IDLE') {
                         play.children[0].classList.toggle("playIcon")
                         play.children[1].classList.toggle("playIcon")
+                        webapis.avplay.prepare();                
                         webapis.avplay.play()
                     } else if(webapis.avplay.getState() === 'PLAYING') {
                         play.children[1].classList.toggle("playIcon")
                         play.children[0].classList.toggle("playIcon")
-                        webapis.avplay.pause()
+                        webapis.avplay.stop()
+                        // webapis.avplay.prepare();                
+                        // webapis.avplay.pause()
                     }
                 } 
                 
-                else if(event.keyCode ===  13 && keyPlayer === 4) {
+                else if((event.keyCode === 13 && keyPlayer === 4) || event.keyCode === 427) {
                     if(channelType < parentChild.length - 1) {
                         channelType++
                     }
@@ -163,7 +151,9 @@ window.onload = function () {
 }
 
 
-
+// function keyDown() {
+//     console.log("hhhhhhhhhhhh");
+// }
 
 // function play() {
 //     if (webapis.avplay.getState() === 'IDLE') {
