@@ -17,38 +17,38 @@ var childPlaylist = document.querySelector(".childPlaylist")
 
 
 
-parentChild[0].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/523/index.m3u8");
+parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
 parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
 parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/2086/index.m3u8");
 
 if(localStorage.getItem("booline") !== null) {
-    back()
-    userListKey = 1
-    inputSearchList.classList.add("inputSearchHover")
+    back();
+    userListKey = 1;
+    inputSearchList.classList.add("inputSearchHover");
     localStorage.removeItem("booline");
 }
 
 function back() {
     if(playlistInput.classList.contains("formPosition")) {
-        playlistInput.classList.remove("formPosition")
-        playlistInput[0].classList.remove("inputseracStyle")
+        playlistInput.classList.remove("formPosition");
+        playlistInput[0].classList.remove("inputseracStyle");
         refChannel.style.display = "flex"
         TvChannelBlock.style.marginTop = "34px"
-        playlistInput[0].blur()
-        serachChannel()
+        playlistInput[0].blur();
+        serachChannel();
     } else {
-        playlistInput.classList.add("formPosition")
-        playlistInput[0].classList.add("inputseracStyle")
+        playlistInput.classList.add("formPosition");
+        playlistInput[0].classList.add("inputseracStyle");
         refChannel.style.display = "none"
         TvChannelBlock.style.marginTop = "130px"
-        playlistInput[0].focus()
+        playlistInput[0].focus();
     }
 }
 
 function serachChannel() {
     for(var t = 0;t < TvChannelBlock.children.length;t++) {
         TvChannelBlock.children[t].style.display = "flex"
-        var nameChannel = TvChannelBlock.children[t].children[1].innerText.toLowerCase()
+        var nameChannel = TvChannelBlock.children[t].children[1].innerText.toLowerCase();
         if(nameChannel.search(inputSearchList.value.toLowerCase())) {
             TvChannelBlock.children[t].style.display = "none"
         }

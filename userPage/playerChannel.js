@@ -22,12 +22,7 @@ var myTimeout = -1
 
 window.onload = function () {
 
-    // function start() {
-    //     tizen.tvinputdevice.registerKey('MediaPlay', 'MediaPause','MediaStop','MediaFastForward','MediaRewind');
-    //     webapis.avplay.open("http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
-    //     webapis.avplay.setDisplayRect(0,0,1920,1080);
-    // }
-    // start()
+
 
 
     document.addEventListener("keydown",function(event) {
@@ -54,7 +49,6 @@ window.onload = function () {
                     keyPlayer++
                 }
     
-    
                 if(keyPlayer === 1) {
                     backButton.classList.add("backButtonHover")
                 } else if(keyPlayer === 2) {
@@ -63,10 +57,9 @@ window.onload = function () {
                     slack[1].classList.add("hoverSlack")
                 } else if(keyPlayer === 4) {
                     slack[2].classList.add("hoverSlack")
-                } 
-                 
+                }
+                
                 // if(event.keyCode === 461)
-        
                 if(event.keyCode ===  13 && keyPlayer === 1 && localStorage.getItem('pathName') === "true") {
                     webapis.avplay.stop()
                     childPlaylist.style.display = "block"

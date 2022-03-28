@@ -1,7 +1,6 @@
 var signInbutton1 = document.querySelector(".button1")
 var signInbutton2 = document.querySelector(".button2")
 var imgParentLogo = document.querySelector(".imgParentLogo")
-var keyCode = document.querySelector(".keyCode")
 
 // for ok button keycode 13
 // 37 left,38 arrowup,39 right,40 arrowdown
@@ -25,7 +24,3 @@ document.addEventListener("keydown", function(event) {
     } 
 });
 
-
-Main.keyDown = function (event) {
-    keyCode.innerText = event.keyCode
-}
