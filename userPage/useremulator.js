@@ -161,9 +161,18 @@ document.addEventListener("keydown",function(event){
                 collectionKey = null
                 userListKey = -3
             } else if(event.keyCode === 37) {
+
+                if(collectionKey % 7 === 0 && collectionKey > 7) {
+                    scrollTopBottom += 254
+                    TvChannelBlock.style.top = (scrollTopBottom + "px")
+                }
                 collectionKey --
             } else if(event.keyCode === 39 && collectionKey < parentChild.length - 1) {
                 collectionKey++
+                if(collectionKey % 7 === 0 && collectionKey > 7) {
+                    scrollTopBottom -= 254
+                    TvChannelBlock.style.top = (scrollTopBottom + "px")
+                }
             }
     
             if(event.keyCode === 40 && collectionKey === -1) {
@@ -172,7 +181,7 @@ document.addEventListener("keydown",function(event){
                 userListKey = 3
                 buttonCollection[0].classList.add("hoverRefresh")
                 collectionKey = null
-            }   else if(event.keyCode === 40 && collectionKey < parentChild.length - 7) {
+            }  else if(event.keyCode === 40 && collectionKey < parentChild.length - 7) {
                 // scroll channel
                 if(collectionKey >= 7) {
                     scrollTopBottom -= 254
