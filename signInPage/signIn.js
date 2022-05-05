@@ -6,6 +6,13 @@ var signInMainButton = document.querySelector(".signInMainButton")
 
 
 
+
+
+
+
+
+
+
 form.addEventListener("submit",function(e) {
     e.preventDefault()
 }) 
@@ -68,9 +75,42 @@ document.addEventListener("keydown",function(event) {
         window.location.href = "../forgetPassword/forget.html";
     } else if(event.keyCode === 13 && numberOfKey === 6) {
         localStorage.setItem("openPopup",true)
-        window.location.href = "../channelMainPage/channelMainPage.html";
+        postSign_In()
+
+        // window.location.href = "../channelMainPage/channelMainPage.html";
     }
 })
+
+
+
+var postSign_In = function() {
+    fetch(""+server+"/login", {
+        mode: 'cors',
+        method : "POST",
+        credentials: "same-origin",
+        headers : {'Content-Type' : 'application/json','Accept': 'application/json'},
+        body : JSON.stringify({email:input[0].value,password:input[1].value})
+    }).then(function(response) { return response.json()} )
+    .then(function(response) {
+        validation(response,input[0],input[1])
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// sergemuradxanyan704@gmail.com
 
 
 

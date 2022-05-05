@@ -126,3 +126,7 @@
     border: 2px solid #00B624 !important;
 }
 
+.errorBorder {
+    border: 1px solid red  !important;
+}
+

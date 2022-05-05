@@ -42,6 +42,8 @@ body {
     margin-left: 187px;
     margin-right: 138px;
     margin-top: 79px;
+    width: 581px;
+    height: 670px;
 }
 
 
@@ -192,6 +194,9 @@ body {
     font-size: 12px;
 }
 
+.errorBorder {
+    border: 1px solid red  !important;
+}
 
 
 

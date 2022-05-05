@@ -42,6 +42,11 @@ Y2xOPPphtg==</DigestValue>
 <DigestValue>Roosuan8Kl2bFxXN19SsQhWe8GFiWex9OgEzuEqXeP/sp5oq2+EUEJZK4f17Q7TRAlemh56z6lEp
 YXsu8tDq4g==</DigestValue>
 </Reference>
+<Reference URI="environment.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>mUYWAPZEQNEyJEshFHUWggLYBXRtoyN+qkXVEZMHGSZh3YPO4AA/ZAJrEROA1/pQF84hHR9u+Lto
+NQI2imCV/Q==</DigestValue>
+</Reference>
 <Reference URI="fonts%2FMontserrat-Regular.otf">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
 <DigestValue>v8/t/YKjUhgaAwc2UhXWojEyr8+Bu8Ng7vCBxVYY+jPlBKBoqkCHaf3ES8NvCLz9/ej154lDDPjn
@@ -579,13 +584,13 @@ bLrD/BP5Eg==</DigestValue>
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>TjmpwVLnu+WGUgygvn2gwLUG/30cMdOfreIvOQArqIwtPeWzYx7o50jDWZMyWMSJbnPNTShwgz5i
-saun7z+e/Q==</DigestValue>
+<DigestValue>0/OmaNCUiAmWz3LJw9z4Gn4vCY1qieuOJLZcuYlq5Dn4c4IWqZqNs067QEGy+/LOv3vWBpR00qz3
+dgWTGCuUTw==</DigestValue>
 </Reference>
 <Reference URI="index.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>Ty2HydD5JpKGEom9yoJO0MUD88TXmbugx9L2E/KLFMFuFOCrwEvUDuqyjEZaXRquAJsN2kALHl3J
-T3ieG+eyWg==</DigestValue>
+<DigestValue>zGna70B0SOkGyyBzCo+31pMYYsB0TMNzgd/S9xZ4B5lGW7AoqUysAQcNEUJ7IvzM4IW8E2LzWvyN
+4QLKoLhw0w==</DigestValue>
 </Reference>
 <Reference URI="js%2Fclock.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -714,8 +719,8 @@ WTibcvICYw==</DigestValue>
 </Reference>
 <Reference URI="userPage%2Fuseremulator.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>wF9JysWvm0Inn54DuD35hfdoZILlk//Np41TPizQkRf6jwLwCV0XPiPFMcyD2FocmqIJJuTuPy0E
-82TH3p+p2A==</DigestValue>
+<DigestValue>aH9qaX/XAGiKeKVldES7utqQXMr0LZ6J+z9dZi7sCzfq+3wyuP28WuF1zR88knTw3nYR2O0drEzW
+6UvFN9/tog==</DigestValue>
 </Reference>
 <Reference URI="video%2Fmov_bbb.mp4">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -742,11 +747,11 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-AwjWBTRu22wnGSDNm0F0EHa01XbFv8sDi7RjY6NddArMBK9alx6UzZ2+4CNVDccrJguiOYhn6pMn
-GvW0g1Xk8rjeU4lMBU3jqL0Pdh6wy8WAdNcxuUdJ13gJIl38Nwx0g3SCL5DfttHpDmPC3cB5TkOX
-iO0sf2hSaMOPWVvlDX7PuBxPSBXkT47Ep6CfdUaCEotT4vDzeGVvY6Od8470XaDB5K8+624wG4yf
-rJfYdJnhuWp/sZsssFubD6sNSsjR6C4L3qutjkEYIK9gqKJci6OrzMQTrtFWYbKqWJTky4GHbGyN
-bJVDNfwMpyGQ7VXK2Ada1JscuPftZOdt2jAqyQ==
+ZY5UTmRfEtptQjBdWOI/Nxs+eOW3r/8Sl+zjFim9MIduO1BgEIzR0CugAWaT8+RO/p/Fj0A+wnBB
+/53bP5QFPFDsZnnwtiwMtliog3gJyRHsU3ll+lYDuxvIP6RNBQMUNAG8Geo4L3+Rpsja2JdjXEfd
+bbM2eWR/NKqkyLFUxu06hI+y/aubJxHJteIK2NmF7gQJhFUHE5wfG5aJ7YV1d5RXeXkdz0ruMMfF
+WlgiImJjo6uboue5elEiml33q3jBfaAJzELjk9rJ7vXxQJKr3MgKuNXkBrLmiI2ZwVG8iOfnmAAd
+odQUxv0jkO9EjBBl3oh9mYX78/ElRsoh/A2Opw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

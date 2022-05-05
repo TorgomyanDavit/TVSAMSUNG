@@ -46,10 +46,36 @@ document.addEventListener("keydown",function(event) {
             changingInput.blur()
         }
     } else if(event.keyCode === 13 && numberOfKey === 2) {
-        formChild.style.display = "none"
-        letterReceive.style.display = "flex"
-        goBAckSlack.classList.add("hoverRefresh")
-        numberOfKey = 3
+
+        if(!(changingInput.value.match(mailformat))) {
+            changingInput.classList.add("errorBorder")
+            TimeOuth(changingInput)
+        } else if(!!(changingInput.value.match(mailformat))) {
+            console.log(changingInput.value);
+            fetch(""+server+"/password/email",{
+                mode: "cors",
+                method : "POST",
+                headers : {"Content-Type" : "application/json","Accept" : "application/json"},
+                body:JSON.stringify({email:changingInput.value})
+            }).then(function(response) {
+                console.log(response.body.getReader(),"json");
+
+                return response.json()
+            })
+            .then(function(response) {
+                console.log(response,"resp");
+            }).then(function(response) {
+                console.log(response,"catch");
+            })
+
+            
+
+            // formChild.style.display = "none"
+            // letterReceive.style.display = "flex"
+            // goBAckSlack.classList.add("hoverRefresh")
+            // numberOfKey = 3
+        }
+
     } else if(event.keyCode === 13 && numberOfKey === 3) {
         window.location.href = "../forgetPassword/newPassword.html";
     }
