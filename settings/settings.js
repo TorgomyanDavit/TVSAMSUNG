@@ -12,6 +12,11 @@ var menyu = document.querySelector(".menyu");
 var slackPosition = document.querySelectorAll(".slackPosition");
 var nameField = document.querySelector(".nameField");
 
+
+// // get notification
+// fetchNotification(sessionStorage.getItem("authenticated"))
+console.log("settings");
+
 var userListKey = null
 var collectionKey = null
 document.addEventListener("keydown",function(event) {

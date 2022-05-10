@@ -1,7 +1,6 @@
 var buttonCollection = document.querySelectorAll(".buttonRef")
 var refresh = document.querySelector(".refresh")
 var inputSearchList = document.querySelector(".inputSearchList")
-var parentChild = document.querySelectorAll(".channelsChild")
 var playlistMain = document.querySelectorAll(".playlistMain")
 var backTo = document.querySelector(".backTo")
 var playlistInput = document.querySelector(".playlistInput")
@@ -14,14 +13,35 @@ var slackPosition = document.querySelectorAll(".slackPosition")
 var video = document.getElementById('myVideo');
 var videoconteiner = document.querySelector(".videoconteiner")
 var childPlaylist = document.querySelector(".childPlaylist")
+var parentChild = []
 
 
 
 
-parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
-parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
-parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/106/index.m3u8");
+// parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
+// parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
+// parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/106/index.m3u8");
 
+updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
+    var tvChannelBlock = document.querySelector(".TvChannelBlock")
+    var blockCount = response.tariffType[0].bouquet_id[0].bouquet_channels;
+    for(var o2 = 0;o2 < blockCount.length;o2++) {
+        var ntChild = document.createElement("div")
+        ntChild.className = "parentChild"
+        ntChild.innerHTML = "<p class=channelsChild data-src="+blockCount[o2].stream_source+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[o2].stream_display_name +"</p>"
+        var img = ntChild.querySelector(".imgTv")
+        img.src = ""+blockCount[o2].stream_icon+""
+        tvChannelBlock.appendChild(ntChild);
+    };
+    // debugger
+
+    parentChild = document.querySelectorAll(".channelsChild");
+    // channelsChild = document.querySelectorAll(".channelsChild");
+});
+
+setTimeout(() => {
+    console.log(parentChild);
+},3000)
 
 
 
@@ -62,15 +82,10 @@ function serachChannel() {
 var userListKey = null
 var collectionKey = null
 var scrollTopBottom = 0
-
 document.addEventListener("keydown",function(event){
-
-
-
     if((event.keyCode === 65376 || event.keyCode === 13) && userListKey === 1) {
         back()
     } else if(notification.style.right !== "0px" && videoconteiner.style.display !== "block") {
-
         if(event.keyCode !== 8  && !(inputSearchList.classList.contains("inputseracStyle"))) {
             refresh.classList.remove("hoverRefresh")
             inputSearchList.classList.remove("inputSearchHover")
@@ -201,9 +216,11 @@ document.addEventListener("keydown",function(event){
                 collectionKey = null
             } 
         }
+        // debugger
     
         if(collectionKey !== null && userListKey === 6) {
             for(var l = 0;l < parentChild.length;l++) {
+
                 if(l === collectionKey) {
                     parentChild[l].classList.add("channelsChildhover")
                 }

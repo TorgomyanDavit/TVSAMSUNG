@@ -17,11 +17,48 @@ var channels = document.querySelector(".channels");
 localStorage.removeItem('pathName');
 
 
-parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
-parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
-parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/106/index.m3u8");
+updateUserPage(sessionStorage.getItem("authenticated"),function(data) {
+    var ChannelBlock = document.querySelector(".channels")
+    var blockCount = data.tariffType[0].bouquet_id[0].bouquet_channels;
+    
+    console.log(data);
+    for(var oo = 0;oo < blockCount.length;oo++) {
+        var Child = document.createElement("div")
+        Child.className = "parentChild"
+        Child.innerHTML = "<p class=channelsChild data-src="+blockCount[oo].stream_source+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[oo].stream_display_name +"</p>"
+        var img = Child.querySelector(".imgTv")
+        img.src = ""+blockCount[oo].stream_icon+""
+        ChannelBlock.appendChild(Child);
+    };
+    parentChild = document.querySelectorAll(".parentChild");
+    channelsChild = document.querySelectorAll(".channelsChild");
+});
 
+// var ceateChild = function() {
+//     var ChannelBlock = document.querySelector(".channels")
+//     var blockCount = new Array(13);
+//     console.log(channelLink);
+//     for(var oo = 0;oo < blockCount.length;oo++) {
+//         var Child = document.createElement("div")
+//         Child.className = "parentChild"
+//         Child.innerHTML = "<p class=channelsChild data-src=><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >Матч футбол " + oo + " </p>"
+//         var img = Child.querySelector(".imgTv")
+//         img.src = "../images/channelImgTV.png"
+//         ChannelBlock.appendChild(Child);
+//     };
+//     parentChild = document.querySelectorAll(".parentChild");
+//     channelsChild = document.querySelectorAll(".channelsChild");
+// }
+// ceateChild();
 
+// parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
+// parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
+// parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/106/index.m3u8");
+
+{/* <div class="parentChild">
+<a href="#" class="channelsChild"><img src="../images/channelImgTV.png"/></a>
+<p class="text">superSaqo</p>
+</div> */}
 
 if(localStorage.getItem("openPopup") === "true") {
     chooseField.style.display = "";
@@ -101,7 +138,7 @@ document.addEventListener("keydown",function(event) {
             if(numberOfMainKey === -6) {
                 numberOfMainKey = -4
             }
-            // hover Men
+            // hover Menyu
             if(numberOfMainKey === 0) {
                 liveChannelType[0].classList.add("hoverLive")
             } else if(numberOfMainKey === -1) {
@@ -233,10 +270,10 @@ document.addEventListener("keydown",function(event) {
                         leftSlider = 0
                         channels.style.left = leftSlider + "px"
                     } else if(numberSlider > 2 && event.keyCode === 39 && numberSlider < channelsChild.length -1) {
-                        leftSlider -= 212
+                        leftSlider -= 242
                         channels.style.left = leftSlider + "px"
                     } else if(numberSlider > 1 && event.keyCode === 37) {
-                        leftSlider += 212
+                        leftSlider += 242
                         channels.style.left = leftSlider + "px"
                     }
                 }

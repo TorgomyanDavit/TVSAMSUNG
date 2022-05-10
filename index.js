@@ -6,7 +6,7 @@ var descriptionHomePage = document.getElementById("descriptionHomePage")
 var TitleHomePage = document.getElementById("TitleHomePage")
 
 var getHomePage = function() {
-    fetch(""+server+"/home").then(function(response) { return response.json()} )
+    fetch(""+server+"/home").then(function(response) { return response.json()})
     .then(function(response) {
         descriptionHomePage.innerText = response.home.description
         TitleHomePage.innerText = response.home.title

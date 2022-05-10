@@ -3,13 +3,26 @@ var notIcon = document.querySelectorAll(".notIcon")
 var deletButton = document.querySelectorAll(".deletButton")
 var notification = document.querySelector(".notification")
 var notificationWidth = notification.offsetWidth;
-var notichild = document.querySelectorAll(".notichild")
+// var notichild = document.querySelectorAll(".notichild")
+var notichild = document.querySelectorAll(".clonedNote")
 var notMessige = document.querySelectorAll(".notMessige ")
 var innerScroll = document.querySelector(".innerScroll")
+// get notification
+fetchNotification(sessionStorage.getItem("authenticated"))
+
+
+
 
 
 
 var notArray = []
+var callnotichild = function() {
+    notichild = document.querySelectorAll(".clonedNote")
+    for(var i2 = 0;i2 < notichild.length;i2++) {
+        notArray[i2] = notichild[i2]
+    }
+}
+
 for(var i2 = 0;i2 < notichild.length;i2++) {
     notArray[i2] = notichild[i2]
 }
@@ -26,6 +39,7 @@ document.addEventListener("keydown",function(event) {
     }
 
     if(notification.style.right === ("0px")) {
+
         if(event.keyCode !== 13) {
             backSlack.classList.remove("backSlackHover")
             for(var i = 0;i < notArray.length;i++) {
@@ -73,7 +87,9 @@ document.addEventListener("keydown",function(event) {
         if(event.keyCode === 13 && numberDelete === 1) {
             notArray = notArray.filter(function(val,i2)  {
                 if(i2 === numberHoverNot) {
+                    deleteMessagePost(sessionStorage.getItem("authenticated"),val.data_src)
                     val.remove()
+                    numberDelete = 0
                 } else {
                     return val
                 }

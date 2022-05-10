@@ -76,12 +76,8 @@ document.addEventListener("keydown",function(event) {
     } else if(event.keyCode === 13 && numberOfKey === 6) {
         localStorage.setItem("openPopup",true)
         postSign_In()
-
-        // window.location.href = "../channelMainPage/channelMainPage.html";
     }
 })
-
-
 
 var postSign_In = function() {
     fetch(""+server+"/login", {
@@ -95,6 +91,9 @@ var postSign_In = function() {
         validation(response,input[0],input[1])
     })
 }
+
+
+
 
 
 
