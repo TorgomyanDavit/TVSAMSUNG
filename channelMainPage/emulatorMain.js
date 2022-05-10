@@ -34,32 +34,6 @@ updateUserPage(sessionStorage.getItem("authenticated"),function(data) {
     channelsChild = document.querySelectorAll(".channelsChild");
 });
 
-// var ceateChild = function() {
-//     var ChannelBlock = document.querySelector(".channels")
-//     var blockCount = new Array(13);
-//     console.log(channelLink);
-//     for(var oo = 0;oo < blockCount.length;oo++) {
-//         var Child = document.createElement("div")
-//         Child.className = "parentChild"
-//         Child.innerHTML = "<p class=channelsChild data-src=><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >Матч футбол " + oo + " </p>"
-//         var img = Child.querySelector(".imgTv")
-//         img.src = "../images/channelImgTV.png"
-//         ChannelBlock.appendChild(Child);
-//     };
-//     parentChild = document.querySelectorAll(".parentChild");
-//     channelsChild = document.querySelectorAll(".channelsChild");
-// }
-// ceateChild();
-
-// parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
-// parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
-// parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/106/index.m3u8");
-
-{/* <div class="parentChild">
-<a href="#" class="channelsChild"><img src="../images/channelImgTV.png"/></a>
-<p class="text">superSaqo</p>
-</div> */}
-
 if(localStorage.getItem("openPopup") === "true") {
     chooseField.style.display = "";
 } else {
@@ -70,6 +44,7 @@ var numberOfMainKey = null
 var numberSlider = null
 var leftSlider = 0
 document.addEventListener("keydown",function(event) {
+    
     if(videoconteiner.style.display !== "block") {
         if(chooseField.style.display === "") {
             Xbutton.classList.remove("EmulatorhoverXButton");
@@ -112,11 +87,13 @@ document.addEventListener("keydown",function(event) {
             } 
     
         } else if ((event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40) && numberOfMainKey <= -1 && (notification.style.right === "-464px" || notification.style.right === "")) {
+           
             if(numberOfMainKey < -1) {
                 for(var t = 0;t < iconDivMenu.length;t++) {
                     iconDivMenu[t].classList.remove("activeHover")
                 }
             }
+    
          
             inputSearch.classList.remove("inputSearchHover");
             liveChannelType[0].classList.remove("hoverLive");
@@ -124,7 +101,7 @@ document.addEventListener("keydown",function(event) {
                 numberOfMainKey = -2
             } else if(event.keyCode === 39 && numberOfMainKey === -2) {
                 numberOfMainKey = -1
-            } else if(event.keyCode === 40 && numberOfMainKey > - 5 && numberOfMainKey < -1) {
+            } else if(event.keyCode === 40 && numberOfMainKey > - 6 && numberOfMainKey < -1) {
                 numberOfMainKey--
             } else if(event.keyCode === 40 && numberOfMainKey === -1) {
                 liveChannelType[0].classList.add("hoverLive")
@@ -135,9 +112,9 @@ document.addEventListener("keydown",function(event) {
                 numberOfMainKey = 0
             }
     
-            if(numberOfMainKey === -6) {
-                numberOfMainKey = -4
-            }
+            // if(numberOfMainKey === -6) {
+            //     numberOfMainKey = -4
+            // }
             // hover Menyu
             if(numberOfMainKey === 0) {
                 liveChannelType[0].classList.add("hoverLive")
@@ -151,6 +128,8 @@ document.addEventListener("keydown",function(event) {
                 iconDivMenu[2].classList.add("activeHover")
             }  else if(numberOfMainKey === -5 ) {
                 iconDivMenu[3].classList.add("activeHover")
+            }  else if(numberOfMainKey === -6 ) {
+                iconDivMenu[4].classList.add("activeHover")
             }  
     
         } else if(event.keyCode === 13 && numberOfMainKey < -1) {
@@ -175,17 +154,16 @@ document.addEventListener("keydown",function(event) {
                     miniDivMenyu[2].classList.add("activeNoteforMenyu")
                     numberOfMainKey = -3
                     iconDivMenu[2].classList.remove("activeHover")
-                } 
+                }
+
             } else if(numberOfMainKey === -5) {
                 window.location.href = "../settings/settings.html";
+            } else if(numberOfMainKey === -6) {
+                logauth(sessionStorage.getItem("authenticated"))
             }
+            
         } else {
             // remove class
-
-
-            
-
-
             if(notification.style.right === "-464px" || notification.style.right === "") {
 
                 for(var j = 0;j < liveChannelType.length;j++) {

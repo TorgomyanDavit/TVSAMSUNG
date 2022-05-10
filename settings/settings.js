@@ -11,15 +11,21 @@ var slackLanguig = document.querySelectorAll(".slackLanguig");
 var menyu = document.querySelector(".menyu");
 var slackPosition = document.querySelectorAll(".slackPosition");
 var nameField = document.querySelector(".nameField");
+var userInputValue = document.querySelectorAll(".userinputValue");
 
 
-// // get notification
-// fetchNotification(sessionStorage.getItem("authenticated"))
+
+updateUserPage(sessionStorage.getItem("authenticated"),function(data) {
+    userInputValue[0].placeholder = data.user.username
+    userInputValue[1].placeholder = data.user.email
+    userInputValue[2].value = data.user.password
+});
 console.log("settings");
 
 var userListKey = null
 var collectionKey = null
 document.addEventListener("keydown",function(event) {
+
     if(notification.style.right !== "0px") {
         if(event.keyCode !== 8) {
             for(var i = 0;i < editSvg.length;i++) {
@@ -34,7 +40,7 @@ document.addEventListener("keydown",function(event) {
         for(var i = 0;i < iconDivMenu.length;i++) {
             iconDivMenu[i].classList.remove("activeHover")
         }
-
+    
         var channelsChildhover = document.querySelector(".channelsChildhover");
         if("INPUT" !== document.activeElement.tagName) {
             if(userListKey === null && channelsChildhover === null) {
@@ -49,7 +55,7 @@ document.addEventListener("keydown",function(event) {
                 userListKey--
             } else if(event.keyCode === 38 && userListKey < 0  && collectionKey === null) {
                 userListKey++
-            } else if(event.keyCode === 40 && userListKey > -4 && userListKey < 0 && collectionKey === null) {
+            } else if(event.keyCode === 40 && userListKey > -5 && userListKey < 0 && collectionKey === null) {
                 userListKey--
             } else if(event.keyCode === 40 && userListKey >= 0 && userListKey < 5 && collectionKey === null) {
                 userListKey++
@@ -76,6 +82,7 @@ document.addEventListener("keydown",function(event) {
             for(var i = 0;i < editSvg.length;i++) {
                 editSvg[i].parentElement.querySelector(".userinputValue").blur() 
             }
+            editSvg[2].parentElement.querySelector(".userinputValue").type = "password"
         }
 
         if(userListKey === -1) {
@@ -86,6 +93,8 @@ document.addEventListener("keydown",function(event) {
             iconDivMenu[2].classList.add("activeHover")
         } else if(userListKey === -4) {
             iconDivMenu[3].classList.add("activeHover")
+        } else if(userListKey === -5) {
+            iconDivMenu[4].classList.add("activeHover")
         } else if(userListKey === 0) {
             inputSearchList.classList.add("inputSearchHover")
         } else if(userListKey === 1) {
@@ -94,15 +103,17 @@ document.addEventListener("keydown",function(event) {
             editSvg[1].classList.add("editStyleHover")
         } else if(userListKey === 3) {
             editSvg[2].classList.add("editStyleHover")
-        } else if(userListKey === 4) {
-            if(languigDiv[0].classList.contains("addingLanguig")) {
-                slackLanguig[1].classList.remove("editStyleHover")
-                slackLanguig[0].classList.add("editStyleHover")
-            } else {
-                slackLanguig[0].classList.remove("editStyleHover")
-                slackLanguig[1].classList.add("editStyleHover")
-            }
-        } else if(userListKey === 5) {
+        } 
+        // else if(userListKey === 4) {
+        //     if(languigDiv[0].classList.contains("addingLanguig")) {
+        //         slackLanguig[1].classList.remove("editStyleHover")
+        //         slackLanguig[0].classList.add("editStyleHover")
+        //     } else {
+        //         slackLanguig[0].classList.remove("editStyleHover")
+        //         slackLanguig[1].classList.add("editStyleHover")
+        //     }
+        // } 
+        else if(userListKey === 4) {
             clickLanguig.classList.add("signInMainButtonhover")
         }
 
@@ -128,8 +139,10 @@ document.addEventListener("keydown",function(event) {
             var miniDivMenyu = document.querySelectorAll(".miniDivMenyu")
             notification.style.right = "0px"
             miniDivMenyu[2].classList.add("activeNoteforMenyu")
-            userListKey = -5
-        } 
+            userListKey = -6
+        } else if(event.keyCode === 13 && userListKey === -5) {
+            logauth(sessionStorage.getItem("authenticated"))
+        }
 
         else if(userListKey === 0 && event.keyCode === 13) {
             localStorage.setItem("booline", true);
@@ -149,21 +162,36 @@ document.addEventListener("keydown",function(event) {
         } else if(userListKey === 3 && event.keyCode === 13) {
             if ("INPUT" === document.activeElement.tagName) {
                 editSvg[2].parentElement.querySelector(".userinputValue").blur() 
+                editSvg[2].parentElement.querySelector(".userinputValue").type = "text"
             } else {
                 editSvg[2].parentElement.querySelector(".userinputValue").focus() 
+                editSvg[2].parentElement.querySelector(".userinputValue").type = "passowrd"
             }
-        } else if(userListKey === 4 && event.keyCode === 13 && collectionKey === null) {
-            collectionKey = 0
-            languigDiv[1].classList.add("addingLanguig")
-            languigDiv[0].classList.add("addingLanguig")
-        } else if(userListKey === 4 && event.keyCode === 13 && collectionKey === 0) {
-            collectionKey = null
-            languigDiv[1].classList.remove("addingLanguig")
-            languigDiv[0].classList.remove("channelsChildhover")
-        } else if(userListKey === 4 && event.keyCode === 13 && collectionKey === 1) {
-            collectionKey = null
-            languigDiv[0].classList.remove("addingLanguig")
-            languigDiv[1].classList.remove("channelsChildhover")
+        } 
+        // else if(userListKey === 4 && event.keyCode === 13 && collectionKey === null) {
+        //     collectionKey = 0
+        //     languigDiv[1].classList.add("addingLanguig")
+        //     languigDiv[0].classList.add("addingLanguig")
+        // } else if(userListKey === 4 && event.keyCode === 13 && collectionKey === 0) {
+        //     collectionKey = null
+        //     languigDiv[1].classList.remove("addingLanguig")
+        //     languigDiv[0].classList.remove("channelsChildhover")
+        // } else if(userListKey === 4 && event.keyCode === 13 && collectionKey === 1) {
+        //     collectionKey = null
+        //     languigDiv[0].classList.remove("addingLanguig")
+        //     languigDiv[1].classList.remove("channelsChildhover")
+        // } 
+        else if(userListKey === 4 && event.keyCode === 13) {
+            updateUserDate(
+                {
+                    username:userInputValue[0].value,
+                    email: userInputValue[1].value,
+                    password:userInputValue[2].value,
+                    id:sessionStorage.getItem("ID")
+                },
+                sessionStorage.getItem("authenticated"),
+                sessionStorage.getItem("ID")
+            )
         }
 
         if(collectionKey === 0) {
@@ -179,16 +207,5 @@ document.addEventListener("keydown",function(event) {
         }
     }
 })
-
-
-
-
-
-
-
-
-
-
-
 
 

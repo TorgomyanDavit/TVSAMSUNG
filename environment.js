@@ -131,5 +131,30 @@ var deleteMessagePost = function(token,id) {
     .then(function(result) {console.log(result)})
 }
 
-// torgomyandavid96@gmail.com
+var updateUserDate = function(body,token,id) {
+    fetch(""+server+"/user/"+id+"",{
+        mode: 'cors',
+        method : "PUT",
+        headers : {'Content-Type' : 'application/json','Accept' : 'application/json','Authorization' : `Bearer ${token}`},
+        body:JSON.stringify(body)
+    }).then(function(result){return result.json()})
+    .then(function(result) {
+        console.log(result);
+    })
+}
+
+var logauth = function(token) {
+    fetch(""+server+"/logout",{
+        mode: 'cors',
+        method : "POST",
+        headers :{'Content-Type' : 'application/json','Accept' : 'application/json','Authorization': `Bearer ${token}`}
+    }).then(function(response) {return response.json()})
+    .then(function(response) {
+        sessionStorage.removeItem('authenticated');
+        sessionStorage.removeItem('ID');
+        location.reload();
+    })
+}
+
+// sergemuradxanyan704@gmail.com
 

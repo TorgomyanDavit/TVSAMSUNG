@@ -16,12 +16,6 @@ var childPlaylist = document.querySelector(".childPlaylist")
 var parentChild = []
 
 
-
-
-// parentChild[0].setAttribute("data-src", "http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/Manifest");
-// parentChild[1].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/11007/index.m3u8");
-// parentChild[2].setAttribute("data-src", "http://fcf2e861.ucomist.net/iptv/CB5F2GMTR7SUDF/106/index.m3u8");
-
 updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
     var tvChannelBlock = document.querySelector(".TvChannelBlock")
     var blockCount = response.tariffType[0].bouquet_id[0].bouquet_channels;
@@ -33,10 +27,7 @@ updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
         img.src = ""+blockCount[o2].stream_icon+""
         tvChannelBlock.appendChild(ntChild);
     };
-    // debugger
-
     parentChild = document.querySelectorAll(".channelsChild");
-    // channelsChild = document.querySelectorAll(".channelsChild");
 });
 
 setTimeout(() => {
@@ -122,11 +113,11 @@ document.addEventListener("keydown",function(event){
             userListKey = 0
         } else if(event.keyCode === 39 && userListKey === -2 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey = 2
-        } else if(event.keyCode === 39 && (userListKey === -3 || userListKey === -4)&& !(inputSearchList.classList.contains("inputseracStyle"))) {
+        } else if(event.keyCode === 39 && (userListKey === -3 || userListKey === -4 || userListKey === -5)&& !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey = 3
         } else if(event.keyCode === 38 && userListKey < -1 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey++
-        } else if(event.keyCode === 40 && userListKey > -4 && userListKey <= -1 && !(inputSearchList.classList.contains("inputseracStyle"))) {
+        } else if(event.keyCode === 40 && userListKey > -5 && userListKey <= -1 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey--
         } else if(event.keyCode === 39 && userListKey < 6 && userListKey >= 0 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey++
@@ -150,6 +141,8 @@ document.addEventListener("keydown",function(event){
             iconDivMenu[2].classList.add("activeHover")
         } else if(userListKey === -4) {
             iconDivMenu[3].classList.add("activeHover")
+        } else if(userListKey === -5) {
+            iconDivMenu[4].classList.add("activeHover")
         } else if(userListKey === 0) {
             refresh.classList.add("hoverRefresh")
         } else if(userListKey === 1) {
@@ -216,8 +209,6 @@ document.addEventListener("keydown",function(event){
                 collectionKey = null
             } 
         }
-        // debugger
-    
         if(collectionKey !== null && userListKey === 6) {
             for(var l = 0;l < parentChild.length;l++) {
 
@@ -250,6 +241,8 @@ document.addEventListener("keydown",function(event){
             userListKey = - 2
         } else if(event.keyCode === 13 && userListKey === -4) {
             window.location.href = "../settings/settings.html";
+        } else if(event.keyCode === 13 && userListKey === -5) {
+            logauth(sessionStorage.getItem("authenticated"))
         } else if(event.keyCode ===  13 && userListKey === 0) {
             location.reload();
         } else if(event.keyCode ===  13 && userListKey === 2) {

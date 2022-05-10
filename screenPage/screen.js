@@ -14,7 +14,7 @@ var numberHover = 0
 var numberHoverScreen = null
 document.addEventListener("keydown",function(event) {
     if(notification.style.right !== "0px") {
-        if(numberHover === -5) {
+        if(numberHover === -6) {
             numberHover = -2
         }
         inputSearchList.classList.remove("inputSearchHover")
@@ -26,7 +26,7 @@ document.addEventListener("keydown",function(event) {
             numberHover = -1
         } else if(event.keyCode === 39 && numberHover < 0) {
             numberHover = 0
-        } else if(event.keyCode === 40 && numberHover < 0 && numberHover > -4) {
+        } else if(event.keyCode === 40 && numberHover < 0 && numberHover > -5) {
             numberHover--
         } else if(event.keyCode === 38 && numberHover < -1) {
             numberHover++
@@ -70,6 +70,8 @@ document.addEventListener("keydown",function(event) {
             iconDivMenu[2].classList.add("activeHover")
         } else if(numberHover === -4) {
             iconDivMenu[3].classList.add("activeHover")
+        } else if(numberHover === -5) {
+            iconDivMenu[4].classList.add("activeHover")
         } else if(numberHover === 0) {
             inputSearchList.classList.add("inputSearchHover")
         } else if(numberHover === 1) {
@@ -81,6 +83,7 @@ document.addEventListener("keydown",function(event) {
                 }
             }
         } 
+       
         
         // enter to add move
         if(event.keyCode === 13 && numberHover === -1) {
@@ -103,14 +106,16 @@ document.addEventListener("keydown",function(event) {
             var miniDivMenyu = document.querySelectorAll(".miniDivMenyu")
             notification.style.right = "0px"
             miniDivMenyu[2].classList.add("activeNoteforMenyu")
-            numberHover= -5
+            numberHover= -6
         } else if(event.keyCode === 13 && numberHover === 0) {
             localStorage.setItem("booline", true);
             window.location.href = "../userPage/user.html";
         } else if(event.keyCode === 13 && numberHover === 1) {
             window.location.href = "../channelMainPage/channelMainPage.html";
-        }  else if(event.keyCode === 13 && numberHover === -4) {
+        } else if(event.keyCode === 13 && numberHover === -4) {
             window.location.href = "../settings/settings.html";
+        } else if(event.keyCode === 13 && numberHover === -5) {
+            logauth(sessionStorage.getItem("authenticated"))
         } 
     }
 })  
