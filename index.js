@@ -16,24 +16,6 @@ var getHomePage = function() {
 getHomePage()
 
 
-// var oReq = new XMLHttpRequest();
-
-// function reqListener () {
-//     // var Data = JSON.parse(oReq.responseText);
-//     // console.log(Data);
-//     // descriptionHomePage.innerText = JSON.parse(oReq.responseText);
-//     descriptionHomePage.innerText = oReq.responseText
-
-// }
-  
-// oReq.onload = reqListener;
-// oReq.open("get", "https://jsonplaceholder.typicode.com/todos/1", true);
-// oReq.send();
-
-
-
-
-
 // for ok button keycode 13
 // 37 left,38 arrowup,39 right,40 arrowdown
 document.addEventListener("keydown",function(event) {

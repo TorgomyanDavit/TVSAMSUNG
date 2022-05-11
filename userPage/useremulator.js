@@ -117,7 +117,7 @@ document.addEventListener("keydown",function(event){
             userListKey++
         } else if(event.keyCode === 40 && userListKey > -5 && userListKey <= -1 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey--
-        } else if(event.keyCode === 39 && userListKey < 6 && userListKey >= 0 && !(inputSearchList.classList.contains("inputseracStyle"))) {
+        } else if(event.keyCode === 39 && userListKey < 3 && userListKey >= 0 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey++
         } else if(event.keyCode === 40 && userListKey < 6 && userListKey > 2 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey = 6

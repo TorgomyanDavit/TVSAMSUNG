@@ -264,9 +264,19 @@ document.addEventListener("keydown",function(event) {
                 } else if(numberOfMainKey === 6 && event.keyCode === 13) {
                     window.location.href = "../userPage/user.html";
                 } else if(numberOfMainKey === 3 && event.keyCode === 13) {
-                    window.location.href = "../screenPage/screen.html";
+                    notification.style.right = "0px"
+                    miniDivMenyu[2].classList.add("activeNoteforMenyu")
+                    numberOfMainKey = -3
+                    iconDivMenu[2].classList.remove("activeHover")
+                    liveChannelType[3].classList.remove("hoverLive");
+                    // window.location.href = "../screenPage/screen.html";
                 } else if(numberOfMainKey === 4 && event.keyCode === 13) {
                     window.location.href = "../settings/settings.html";
+                } else if(numberOfMainKey === 5 && event.keyCode === 13) {
+                    // debugger
+                    logauth(sessionStorage.getItem("authenticated"))
+
+                    // window.location.href = "../settings/settings.html";
                 }
 
                 /** Tv Player */
