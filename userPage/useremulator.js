@@ -22,7 +22,7 @@ updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
     for(var o2 = 0;o2 < blockCount.length;o2++) {
         var ntChild = document.createElement("div")
         ntChild.className = "parentChild"
-        ntChild.innerHTML = "<p class=channelsChild data-src="+blockCount[o2].stream_source+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[o2].stream_display_name +"</p>"
+        ntChild.innerHTML = "<p class=channelsChild data-src="+blockCount[o2].stream_source[0]+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[o2].stream_display_name +"</p>"
         var img = ntChild.querySelector(".imgTv")
         img.src = ""+blockCount[o2].stream_icon+""
         tvChannelBlock.appendChild(ntChild);
@@ -264,6 +264,7 @@ document.addEventListener("keydown",function(event){
             videoconteiner.style.display = "block"
             for(var i5 = 0;i5 < parentChild.length;i5++) {
                 if(i5 === collectionKey) {
+                    debugger
                     var filmUrl = parentChild[i5].getAttribute("data-src")
                     webapis.avplay.open(filmUrl);
                     webapis.avplay.setDisplayRect(0,0,1920,1080);

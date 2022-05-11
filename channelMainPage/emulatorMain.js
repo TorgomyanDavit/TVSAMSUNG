@@ -16,7 +16,6 @@ var video = document.getElementById('myVideo');
 var channels = document.querySelector(".channels");
 localStorage.removeItem('pathName');
 
-
 updateUserPage(sessionStorage.getItem("authenticated"),function(data) {
     var ChannelBlock = document.querySelector(".channels")
     var blockCount = data.tariffType[0].bouquet_id[0].bouquet_channels;
@@ -25,12 +24,12 @@ updateUserPage(sessionStorage.getItem("authenticated"),function(data) {
     for(var oo = 0;oo < blockCount.length;oo++) {
         var Child = document.createElement("div")
         Child.className = "parentChild"
-        Child.innerHTML = "<p class=channelsChild data-src="+blockCount[oo].stream_source+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[oo].stream_display_name +"</p>"
+        Child.innerHTML = "<p class=channelsChild data-src="+blockCount[oo].stream_source[0]+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[oo].stream_display_name +"</p>"
         var img = Child.querySelector(".imgTv")
         img.src = ""+blockCount[oo].stream_icon+""
         ChannelBlock.appendChild(Child);
     };
-    parentChild = document.querySelectorAll(".parentChild");
+    parentChild = document.querySelectorAll(".channelsChild");
     channelsChild = document.querySelectorAll(".channelsChild");
 });
 
@@ -278,8 +277,9 @@ document.addEventListener("keydown",function(event) {
                     videoconteiner.style.display = "block"
                     for(var i5 = 0;i5 < parentChild.length;i5++) {
                         if(i5 === numberSlider) {
+                            debugger
                             var filmUrl = parentChild[i5].getAttribute("data-src")
-                            tizen.tvinputdevice.registerKey('MediaPlay', 'MediaPause','MediaStop','MediaFastForward','MediaRewind');
+                            // tizen.tvinputdevice.registerKey('MediaPlay', 'MediaPause','MediaStop','MediaFastForward','MediaRewind');
                             webapis.avplay.open(filmUrl);
                             webapis.avplay.setDisplayRect(0,0,1920,1080);
                             setTimeout(function() {
