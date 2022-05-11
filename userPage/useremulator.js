@@ -30,11 +30,9 @@ updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
     parentChild = document.querySelectorAll(".channelsChild");
 });
 
-// setTimeout(function() {
+// setTimeout(() => {
 //     console.log(parentChild);
 // },3000)
-
-
 
 if(localStorage.getItem("booline") !== null) {
     back();
@@ -264,7 +262,6 @@ document.addEventListener("keydown",function(event){
             videoconteiner.style.display = "block"
             for(var i5 = 0;i5 < parentChild.length;i5++) {
                 if(i5 === collectionKey) {
-                    debugger
                     var filmUrl = parentChild[i5].getAttribute("data-src")
                     webapis.avplay.open(filmUrl);
                     webapis.avplay.setDisplayRect(0,0,1920,1080);

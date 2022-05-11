@@ -58,7 +58,7 @@ document.addEventListener("keydown",function(event) {
 })
 
 var fetchEmail = function() {
-    fetch(""+server+"/password/email",{
+    fetch(server+"/password/email",{
         mode: "cors",
         method : "POST",
         headers : {"Content-Type" : "application/json","Accept" : "application/json"},

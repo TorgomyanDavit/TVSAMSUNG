@@ -5,14 +5,6 @@ var forgetPassword = document.querySelector(".forgetPassword")
 var signInMainButton = document.querySelector(".signInMainButton")
 
 
-
-
-
-
-
-
-
-
 form.addEventListener("submit",function(e) {
     e.preventDefault()
 }) 
@@ -53,7 +45,6 @@ document.addEventListener("keydown",function(event) {
         input[1].classList.add("hoverInput")
     } 
     // else if(numberOfKey === 5) {
-    //     debugger
     //     forgetPassword.classList.add("hoverLink")
     // } 
     else if(numberOfKey === 5) {
@@ -85,7 +76,7 @@ document.addEventListener("keydown",function(event) {
 })
 
 var postSign_In = function() {
-    fetch(""+server+"/login", {
+    fetch(server+"/login", {
         mode: 'cors',
         method : "POST",
         credentials: "same-origin",

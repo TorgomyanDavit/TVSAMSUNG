@@ -66,23 +66,7 @@ document.addEventListener("keydown",function(event) {
 
 
 
-// body:{
-//     email:params.email,
-//     password:input[0].value,
-//     password_confirmation:input[2].value,
-//     token:params.token,
-// },}));
-c
 
-// var createpPassword = function() {
-//     console.log(changingInput[1]);
-// //     fetch(`${path}/password/reset`,{
-// //         mode: 'cors',
-// //         method : "POST",
-// //         headers : {'Content-Type' : 'application/json','Accept' : 'application/json'},
-// //         body:JSON.stringify(body)
-// //     })
-// }
 
 
 

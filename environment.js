@@ -1,11 +1,10 @@
-var  server = "https://allnet.webstart.am/api"
+var server = "https://allnet.webstart.am/api"
 var pathnameUrl = window.location.pathname
 var checkPath = pathnameUrl === "/index.html" || pathnameUrl === "/registerPage/register.html" 
 || pathnameUrl === "/signInPage/signIn.html" || pathnameUrl === "/forgetPassword/forget.html" || pathnameUrl === "/forgetPassword/newPassword.html"
 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 var ID = sessionStorage.getItem("ID")
 // var channelLink = []
-
 
 
 var createNotification = function(data) {
@@ -70,7 +69,7 @@ var TimeOuth = function(array) {
 };
 
 var fetchNotification = function(id,token) {
-    fetch(""+server+"/notification/"+ID+"",{
+    fetch(server+"/notification/"+ID,{
         mode: 'cors', 
         method : "GET", 
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
@@ -86,7 +85,7 @@ var fetchNotification = function(id,token) {
 };
 
 var fetchUserHomePage = function(token) {
-    fetch(""+server+"/userPage",{
+    fetch(server+"/userPage",{
         mode: 'cors', 
         method : "GET", 
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
@@ -99,7 +98,7 @@ var fetchUserHomePage = function(token) {
 }
 
 var updateUserPage = function(token,createChild) {
-    fetch(""+server+"/userPage",{
+    fetch(server+"/userPage",{
         mode: 'cors', 
         method : "GET", 
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
@@ -110,7 +109,7 @@ var updateUserPage = function(token,createChild) {
 }
 
 var updateChanelPage = function(token,createChannelChild) {
-    fetch(""+server+"/userPage",{
+    fetch(server+"/userPage",{
         mode: 'cors', 
         method : "GET", 
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
@@ -121,7 +120,7 @@ var updateChanelPage = function(token,createChannelChild) {
 }
 
 var deleteMessagePost = function(token,id) {
-    fetch(""+server+"/notification/"+id+"",{
+    fetch(server+"/notification/"+id,{
         mode: 'cors',
         method : "DELETE",
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""},
@@ -132,7 +131,7 @@ var deleteMessagePost = function(token,id) {
 }
 
 var updateUserDate = function(body,token,id) {
-    fetch(""+server+"/user/"+id+"",{
+    fetch(server+"/user/"+id,{
         mode: 'cors',
         method : "PUT",
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""},
@@ -144,7 +143,7 @@ var updateUserDate = function(body,token,id) {
 }
 
 var logauth = function(token) {
-    fetch(""+server+"/logout",{
+    fetch(server + "/logout",{
         mode: 'cors',
         method : "POST",
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}

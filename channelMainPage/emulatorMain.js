@@ -277,7 +277,6 @@ document.addEventListener("keydown",function(event) {
                     videoconteiner.style.display = "block"
                     for(var i5 = 0;i5 < parentChild.length;i5++) {
                         if(i5 === numberSlider) {
-                            debugger
                             var filmUrl = parentChild[i5].getAttribute("data-src")
                             // tizen.tvinputdevice.registerKey('MediaPlay', 'MediaPause','MediaStop','MediaFastForward','MediaRewind');
                             webapis.avplay.open(filmUrl);
