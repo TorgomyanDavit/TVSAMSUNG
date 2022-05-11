@@ -24,7 +24,7 @@ var createNotification = function(data) {
         // console.log(deskriptionNotif);
         clonedNote.id = "";
         clonedNote.classList.add("clonedNote");
-        mainNotification.appendChild(clonedNote)
+        mainNotification.appendChild(clonedNote);
     }
     console.log(data);
     console.log(clonedNote);
@@ -128,26 +128,26 @@ var deleteMessagePost = function(token,id) {
         body:JSON.stringify(id)
     })
     .then(function(result) {return result.json()})
-    .then(function(result) {console.log(result)})
+    .then(function(result) {console.log(result)});
 }
 
 var updateUserDate = function(body,token,id) {
     fetch(""+server+"/user/"+id+"",{
         mode: 'cors',
         method : "PUT",
-        headers : {'Content-Type' : 'application/json','Accept' : 'application/json','Authorization' : `Bearer ${token}`},
+        headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""},
         body:JSON.stringify(body)
     }).then(function(result){return result.json()})
     .then(function(result) {
         console.log(result);
-    })
+    });
 }
 
 var logauth = function(token) {
     fetch(""+server+"/logout",{
         mode: 'cors',
         method : "POST",
-        headers :{'Content-Type' : 'application/json','Accept' : 'application/json','Authorization': `Bearer ${token}`}
+        headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
     }).then(function(response) {return response.json()})
     .then(function(response) {
         sessionStorage.removeItem('authenticated');

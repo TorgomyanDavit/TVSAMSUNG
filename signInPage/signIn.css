@@ -153,7 +153,8 @@ body {
     opacity: 0.71;
     text-align: end;
     width: 100%;
-    display: block;
+    /* display: block; */
+    display: none;
 }
 
 .signInMainButton {

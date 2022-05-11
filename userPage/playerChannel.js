@@ -147,7 +147,7 @@ window.onload = function () {
         }
         
     
-    })
+    });
 }
 
 

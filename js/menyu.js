@@ -72,7 +72,6 @@ document.addEventListener("keydown",function(event) {
         if(numberHoverNot === -1 ) {
             backSlack.classList.add("backSlackHover")
         } 
-      
         if(numberHoverNot !== -1 ) {
             notArray.forEach(function(val,i2) {
                 if(i2 === numberHoverNot && numberDelete === 0) {

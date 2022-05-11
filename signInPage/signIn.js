@@ -51,9 +51,12 @@ document.addEventListener("keydown",function(event) {
         Link[1].classList.add("hoverLink")
     } else if(numberOfKey === 4) {
         input[1].classList.add("hoverInput")
-    } else if(numberOfKey === 5) {
-        forgetPassword.classList.add("hoverLink")
-    } else if(numberOfKey === 6) {
+    } 
+    // else if(numberOfKey === 5) {
+    //     debugger
+    //     forgetPassword.classList.add("hoverLink")
+    // } 
+    else if(numberOfKey === 5) {
         signInMainButton.classList.add("hoverLinkForButton")
     } 
 
@@ -71,9 +74,11 @@ document.addEventListener("keydown",function(event) {
         if ("INPUT" === document.activeElement.tagName) { input[0].blur() } else { input[0].focus()}
     } else if(event.keyCode === 13 && numberOfKey === 4) {
         if ("INPUT" === document.activeElement.tagName) { input[1].blur() } else {  input[1].focus() }
-    } else if(event.keyCode === 13 && numberOfKey === 5) {
-        window.location.href = "../forgetPassword/forget.html";
-    } else if(event.keyCode === 13 && numberOfKey === 6) {
+    } 
+    // else if(event.keyCode === 13 && numberOfKey === 5) {
+    //     window.location.href = "../forgetPassword/forget.html";
+    // } 
+    else if(event.keyCode === 13 && numberOfKey === 5) {
         localStorage.setItem("openPopup",true)
         postSign_In()
     }

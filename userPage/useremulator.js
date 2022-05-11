@@ -30,9 +30,9 @@ updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
     parentChild = document.querySelectorAll(".channelsChild");
 });
 
-setTimeout(() => {
-    console.log(parentChild);
-},3000)
+// setTimeout(function() {
+//     console.log(parentChild);
+// },3000)
 
 
 
