@@ -27,6 +27,10 @@ body {
     top: 228px;
 }
 
+.imgTv {
+    width: 100px !important;
+}
+
 .childPlaylist {
     max-width: 1667px;
     margin-left: 195px;

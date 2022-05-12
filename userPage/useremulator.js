@@ -17,6 +17,7 @@ var parentChild = []
 
 
 updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
+    console.log(response);
     var tvChannelBlock = document.querySelector(".TvChannelBlock")
     var blockCount = response.tariffType[0].bouquet_id[0].bouquet_channels;
     for(var o2 = 0;o2 < blockCount.length;o2++) {
@@ -30,9 +31,6 @@ updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
     parentChild = document.querySelectorAll(".channelsChild");
 });
 
-// setTimeout(() => {
-//     console.log(parentChild);
-// },3000)
 
 if(localStorage.getItem("booline") !== null) {
     back();
@@ -117,7 +115,7 @@ document.addEventListener("keydown",function(event){
             userListKey++
         } else if(event.keyCode === 40 && userListKey > -5 && userListKey <= -1 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey--
-        } else if(event.keyCode === 39 && userListKey < 3 && userListKey >= 0 && !(inputSearchList.classList.contains("inputseracStyle"))) {
+        } else if(event.keyCode === 39 && userListKey < 5 && userListKey >= 0 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey++
         } else if(event.keyCode === 40 && userListKey < 6 && userListKey > 2 && !(inputSearchList.classList.contains("inputseracStyle"))) {
             userListKey = 6
