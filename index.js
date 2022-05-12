@@ -19,7 +19,7 @@ getHomePage()
 // for ok button keycode 13
 // 37 left,38 arrowup,39 right,40 arrowdown
 document.addEventListener("keydown",function(event) {
-    descriptionHomePage.innerText = event.keyCode
+    // descriptionHomePage.innerText = event.keyCode
     if(event.keyCode === 10009) {
         tizen.application.getCurrentApplication().exit();
     }
