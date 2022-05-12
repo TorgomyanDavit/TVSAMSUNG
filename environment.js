@@ -27,8 +27,6 @@ var createNotification = function(data) {
     }
     console.log(data);
     console.log(clonedNote);
-
-
 }
 
 var authentication = function() {

@@ -186,7 +186,8 @@ body {
     margin: 0 auto;
     border-top: 1px solid rgba(0, 0, 0, 0.719);
     margin-top: 34px;
-    display: flex;
+    /* display: flex; */
+    display: none;
     justify-content: center;
     align-items: flex-end;
     color: #282828;
