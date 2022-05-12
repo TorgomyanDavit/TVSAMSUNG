@@ -10,11 +10,6 @@ var innerScroll = document.querySelector(".innerScroll")
 // get notification
 fetchNotification(sessionStorage.getItem("authenticated"))
 
-
-
-
-
-
 var notArray = []
 var callnotichild = function() {
     notichild = document.querySelectorAll(".clonedNote")

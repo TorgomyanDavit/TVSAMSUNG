@@ -29,6 +29,22 @@ var createNotification = function(data) {
     console.log(clonedNote);
 }
 
+var fetchNotification = function(id,token) {
+    fetch(server+"/notification/"+ID,{
+        mode: 'cors', 
+        method : "GET", 
+        headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
+    }).then(function(result) {return  result.json()})
+    .then(function(result) {
+        if(!!result.notifications) {
+            result.notifications.forEach(function(val) {
+                createNotification(val);
+            });
+            callnotichild()
+        }
+    });
+};
+
 var authentication = function() {
     if(!!sessionStorage.getItem("authenticated") && checkPath === true) {
         window.location.href = "../channelMainPage/channelMainPage.html";
@@ -38,6 +54,21 @@ var authentication = function() {
     }
 }
 authentication()
+
+
+var postSign_In = function() {
+    fetch(server+"/login", {
+        mode: 'cors',
+        method : "POST",
+        credentials: "same-origin",
+        headers : {'Content-Type' : 'application/json','Accept': 'application/json'},
+        body : JSON.stringify({email:input[0].value,password:input[1].value})
+    }).then(function(response) { return response.json()} )
+    .then(function(response) {
+        validation(response,input[0],input[1])
+    })
+}
+
 
 var validation = function(response,email,password) {
     if(!(email.value.match(mailformat))) {
@@ -66,21 +97,21 @@ var TimeOuth = function(array) {
     },2000);
 };
 
-var fetchNotification = function(id,token) {
-    fetch(server+"/notification/"+ID,{
-        mode: 'cors', 
-        method : "GET", 
-        headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
-    }).then(function(result) {return  result.json()})
-    .then(function(result) {
-        if(!!result.notifications) {
-            result.notifications.forEach(function(val) {
-                createNotification(val);
-            });
-            callnotichild()
-        }
-    });
-};
+// var fetchNotification = function(id,token) {
+//     fetch(server+"/notification/"+ID,{
+//         mode: 'cors', 
+//         method : "GET", 
+//         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
+//     }).then(function(result) {return  result.json()})
+//     .then(function(result) {
+//         if(!!result.notifications) {
+//             result.notifications.forEach(function(val) {
+//                 createNotification(val);
+//             });
+//             callnotichild()
+//         }
+//     });
+// };
 
 var fetchUserHomePage = function(token) {
     fetch(server+"/userPage",{
@@ -106,16 +137,16 @@ var updateUserPage = function(token,createChild) {
     });
 }
 
-var updateChanelPage = function(token,createChannelChild) {
-    fetch(server+"/userPage",{
-        mode: 'cors', 
-        method : "GET", 
-        headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
-    }).then(function(result) {return  result.json()})
-    .then(function(result) {
-        createChannelChild(result)
-    });
-}
+// var updateChanelPage = function(token,createChannelChild) {
+//     fetch(server+"/userPage",{
+//         mode: 'cors', 
+//         method : "GET", 
+//         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
+//     }).then(function(result) {return  result.json()})
+//     .then(function(result) {
+//         createChannelChild(result)
+//     });
+// }
 
 var deleteMessagePost = function(token,id) {
     fetch(server+"/notification/"+id,{
@@ -153,18 +184,6 @@ var logauth = function(token) {
     })
 }
 
-var postSign_In = function() {
-    fetch(server+"/login", {
-        mode: 'cors',
-        method : "POST",
-        credentials: "same-origin",
-        headers : {'Content-Type' : 'application/json','Accept': 'application/json'},
-        body : JSON.stringify({email:input[0].value,password:input[1].value})
-    }).then(function(response) { return response.json()} )
-    .then(function(response) {
-        validation(response,input[0],input[1])
-    })
-}
 
 // sergemuradxanyan704@gmail.com
 

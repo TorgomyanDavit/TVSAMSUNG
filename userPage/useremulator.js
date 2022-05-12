@@ -17,6 +17,7 @@ var parentChild = []
 
 
 updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
+    console.log(response);
     var tvChannelBlock = document.querySelector(".TvChannelBlock")
     var blockCount = response.tariffType[0].bouquet_id[0].bouquet_channels;
     for(var o2 = 0;o2 < blockCount.length;o2++) {
