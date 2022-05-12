@@ -4,7 +4,20 @@ var checkPath = pathnameUrl === "/index.html" || pathnameUrl === "/registerPage/
 || pathnameUrl === "/signInPage/signIn.html" || pathnameUrl === "/forgetPassword/forget.html" || pathnameUrl === "/forgetPassword/newPassword.html"
 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 var ID = sessionStorage.getItem("ID")
+var videoconteiner = document.querySelector(".videoconteiner")
+var chooseField = document.querySelector(".chooseField");
+
+
 // var channelLink = []
+
+document.addEventListener("keydown",function(event) {
+    if(event.keyCode === 10009 && videoconteiner.style.display !== "block") {
+        window.history.back();
+    }
+    if(event.keyCode === 10182) {
+        tizen.application.getCurrentApplication().exit();
+    }
+});
 
 
 var createNotification = function(data) {
@@ -14,7 +27,7 @@ var createNotification = function(data) {
         var clonedNote = notificationInner.cloneNode(true);
         var deskriptionNotif = clonedNote.querySelector(".titlering")
         var timering = clonedNote.querySelector(".timering")
-        var notMessige = clonedNote.querySelector(".notMessige ")
+        var notMessige = clonedNote.querySelector(".notMessige")
         clonedNote.data_src = data.id
         deskriptionNotif.innerHTML = data.title
         timering.innerHTML = data.created_at.split(' ')[0]

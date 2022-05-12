@@ -14,6 +14,9 @@ form.addEventListener("submit",function(e) {
 var numberOfKey = null
 document.addEventListener("keydown",function(event) {
     // close open element
+    if(event.keyCode === 10009 ) {
+        window.history.back();
+    }
     if(event.keyCode !== 8) {
         Link[0].classList.remove("hoverLink")
         Link[1].classList.remove("hoverLink")

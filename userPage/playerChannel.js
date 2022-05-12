@@ -6,8 +6,11 @@ var channel = document.querySelector(".prev")
 var sourceButton = document.querySelector(".sourceButton")
 var slack = document.querySelectorAll(".slack")
 var mainPageSizerDiv = document.querySelector(".mainPageSizerDiv");
-const keysTizen = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "ChannelUp", "ChannelDown", "MediaPlay", "MediaPause", "MediaFastForward", "MediaRewind", "Exit"];
+var keysTizen = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "ChannelUp", "ChannelDown", "MediaPlay", "MediaPause", "MediaFastForward", "MediaRewind", "Exit"];
 tizen.tvinputdevice.registerKeyBatch(keysTizen);
+
+
+
 
 var keyPlayer = null
 var channelType = 0
@@ -21,7 +24,6 @@ window.onload = function () {
             if(myTimeout !== -1) { clearTimeout(myTimeout); }
             myTimeout = setTimeout(function() { sourceButton.classList.remove("playButtonHover");keyPlayer = 3},2000)
             if(sourceButton.classList.contains("playButtonHover"))  {
-
                 for(var i = 0;i < slack.length;i++) {
                     backButton.classList.remove("backButtonHover")+
                     slack[i].classList.remove("hoverSlack")
@@ -45,7 +47,10 @@ window.onload = function () {
                 }
                 
                 // if(event.keyCode === 461)
-                if(event.keyCode ===  13 && keyPlayer === 1 && localStorage.getItem('pathName') === "true") {
+                if(
+                    (event.keyCode ===  13 && keyPlayer === 1 && localStorage.getItem('pathName') === "true") ||
+                    (event.keyCode ===  10009 && localStorage.getItem('pathName') === "true")
+                ) {
                     webapis.avplay.stop()
                     childPlaylist.style.display = "block"
                     menyu.style.display = "block"
@@ -55,7 +60,10 @@ window.onload = function () {
                     localStorage.removeItem('pathName');
                 } 
                 
-                else if(event.keyCode ===  13 && keyPlayer === 1 && localStorage.getItem('pathName') !== "true") {
+                else if(
+                    (event.keyCode ===  13 && keyPlayer === 1 && localStorage.getItem('pathName') !== "true") ||
+                    (event.keyCode ===  10009 && localStorage.getItem('pathName') !== "true")
+                    ) {
                     webapis.avplay.stop()
                     mainPageSizerDiv.style.display = "block"
                     menyu.style.display = "block"
@@ -77,7 +85,7 @@ window.onload = function () {
                             webapis.avplay.play();
                         }
                     }
-                } 
+                }
                 
                 else if(event.keyCode ===  13 && keyPlayer === 3) {
                     if(webapis.avplay.getState() === 'IDLE') {
