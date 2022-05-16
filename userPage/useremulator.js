@@ -14,22 +14,69 @@ var video = document.getElementById('myVideo');
 var videoconteiner = document.querySelector(".videoconteiner")
 var childPlaylist = document.querySelector(".childPlaylist")
 var parentChild = []
+var img_loading = document.getElementById("loading_img")
 
 
-updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
-    console.log(response);
+var createLink = function(response) {
     var tvChannelBlock = document.querySelector(".TvChannelBlock")
-    var blockCount = response.tariffType[0].bouquet_id[0].bouquet_channels;
-    for(var o2 = 0;o2 < blockCount.length;o2++) {
+    var Allchanel = response.tariffType[0].bouquet_id
+    var ChannelShowes = [];
+    tvChannelBlock.innerHTML = "";
+
+    var refIndex = Array.from(refChannel.children).findIndex(function(val) {
+        return val.classList.contains("activeButton")
+    })
+    console.log(refChannel.children,refIndex);
+    console.log(tvChannelBlock.children);
+
+    if(refIndex === 0) {
+        ChannelShowes = Allchanel.reduce(function(aggr,val,i,array) {
+            aggr = aggr.concat(val.bouquet_channels)
+            return aggr
+        },[])
+    } else if(!!Allchanel[refIndex - 1]) {
+        ChannelShowes = Allchanel[refIndex - 1].bouquet_channels
+    } else {
+        ChannelShowes = []
+    }
+
+    for(var o2 = 0;o2 < ChannelShowes.length ;o2++) {
         var ntChild = document.createElement("div")
         ntChild.className = "parentChild"
-        ntChild.innerHTML = "<p class=channelsChild data-src="+blockCount[o2].stream_source[0]+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[o2].stream_display_name +"</p>"
+        ntChild.innerHTML = "<p class=channelsChild data-src="+ChannelShowes[o2].stream_source[0]+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ ChannelShowes[o2].stream_display_name +"</p>"
         var img = ntChild.querySelector(".imgTv")
-        img.src = ""+blockCount[o2].stream_icon+""
+        img.src = ""+ChannelShowes[o2].stream_icon+""
         tvChannelBlock.appendChild(ntChild);
     };
+
     parentChild = document.querySelectorAll(".channelsChild");
-});
+    img_loading.style.display = "none";
+
+}
+
+updateUserPage(sessionStorage.getItem("authenticated"),createLink)
+
+
+
+// updateUserPage(sessionStorage.getItem("authenticated"),function(response) {
+//     console.log(response);
+//     var tvChannelBlock = document.querySelector(".TvChannelBlock")
+//     var blockCount = response.tariffType[0].bouquet_id[0].bouquet_channels;
+//     for(var o2 = 0;o2 < blockCount.length;o2++) {
+//         var ntChild = document.createElement("div")
+//         ntChild.className = "parentChild"
+//         ntChild.innerHTML = "<p class=channelsChild data-src="+blockCount[o2].stream_source[0]+" ><img class=imgTv src=../images/channelImgTV.png /></p>" + "<p class=text >"+ blockCount[o2].stream_display_name +"</p>"
+//         var img = ntChild.querySelector(".imgTv")
+//         img.src = ""+blockCount[o2].stream_icon+""
+//         tvChannelBlock.appendChild(ntChild);
+//     };
+//     parentChild = document.querySelectorAll(".channelsChild");
+// });
+
+
+
+
+
 
 
 if(localStorage.getItem("booline") !== null) {
@@ -87,6 +134,7 @@ document.addEventListener("keydown",function(event){
             for(var i = 0;i < buttonCollection.length;i++) {
                 buttonCollection[i].classList.remove("activeButton")
             }
+            updateUserPage(sessionStorage.getItem("authenticated"),createLink)
         }
     
         for(var j = 0;j < parentChild.length;j++) {

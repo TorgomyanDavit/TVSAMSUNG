@@ -29,7 +29,8 @@ var createNotification = function(data) {
     console.log(clonedNote);
 }
 
-var fetchNotification = function(id,token) {
+
+var fetchNotification = function(token) {
     fetch(server+"/notification/"+ID,{
         mode: 'cors', 
         method : "GET", 
@@ -44,6 +45,7 @@ var fetchNotification = function(id,token) {
         }
     });
 };
+
 
 var authentication = function() {
     if(!!sessionStorage.getItem("authenticated") && checkPath === true) {
@@ -127,6 +129,8 @@ var fetchUserHomePage = function(token) {
 }
 
 var updateUserPage = function(token,createChild) {
+    img_loading.style.display = "inline";
+
     fetch(server+"/userPage",{
         mode: 'cors', 
         method : "GET", 

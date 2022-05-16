@@ -273,10 +273,7 @@ document.addEventListener("keydown",function(event) {
                 } else if(numberOfMainKey === 4 && event.keyCode === 13) {
                     window.location.href = "../settings/settings.html";
                 } else if(numberOfMainKey === 5 && event.keyCode === 13) {
-                    // debugger
                     logauth(sessionStorage.getItem("authenticated"))
-
-                    // window.location.href = "../settings/settings.html";
                 }
 
                 /** Tv Player */
