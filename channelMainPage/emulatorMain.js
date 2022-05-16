@@ -43,7 +43,6 @@ var numberOfMainKey = null
 var numberSlider = null
 var leftSlider = 0
 document.addEventListener("keydown",function(event) {
-    
     if(videoconteiner.style.display !== "block") {
         if(chooseField.style.display === "") {
             Xbutton.classList.remove("EmulatorhoverXButton");

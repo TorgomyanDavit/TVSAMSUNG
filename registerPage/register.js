@@ -3,6 +3,10 @@ var link = document.querySelectorAll(".linkRegSign")
 
 var numberofElement = null
 document.addEventListener("keydown",function(event) {
+    if(event.keyCode === 10009 ) {
+        window.history.back();
+    }
+
     for(var i = 0;i < link.length;i++) {
         link[i].classList.remove("hoverLink")
     }
