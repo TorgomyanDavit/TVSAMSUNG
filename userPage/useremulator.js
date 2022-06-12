@@ -14,7 +14,7 @@ var video = document.getElementById('myVideo');
 var videoconteiner = document.querySelector(".videoconteiner")
 var childPlaylist = document.querySelector(".childPlaylist")
 var parentChild = []
-var img_loading = document.getElementById("loading_img")
+// var img_loading = document.getElementById("loading_img")
 
 
 var createLink = function(response) {
@@ -50,7 +50,7 @@ var createLink = function(response) {
     };
 
     parentChild = document.querySelectorAll(".channelsChild");
-    img_loading.style.display = "none";
+    // img_loading.style.display = "none";
 
 }
 

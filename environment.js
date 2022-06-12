@@ -142,7 +142,7 @@ var fetchUserHomePage = function(token) {
 }
 
 var updateUserPage = function(token,createChild) {
-    img_loading.style.display = "inline";
+    // img_loading.style.display = "inline";
 
     fetch(server+"/userPage",{
         mode: 'cors', 
@@ -150,6 +150,7 @@ var updateUserPage = function(token,createChild) {
         headers : {"Content-Type" : "application/json","Accept" : "application/json","Authorization" : "Bearer "+token+""}
     }).then(function(result) {return  result.json()})
     .then(function(result) {
+
         createChild(result)
     });
 }

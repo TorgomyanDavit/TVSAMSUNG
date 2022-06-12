@@ -17,6 +17,7 @@ var channels = document.querySelector(".channels");
 localStorage.removeItem('pathName');
 
 updateUserPage(sessionStorage.getItem("authenticated"),function(data) {
+    alert(data)
     var ChannelBlock = document.querySelector(".channels")
     var blockCount = data.tariffType[0].bouquet_id[0].bouquet_channels;
     
